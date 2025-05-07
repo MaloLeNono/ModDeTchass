@@ -18,7 +18,7 @@ namespace ModDeTchass.Content.Projectiles
             Projectile.width = 22;
             Projectile.height = 22;
             Projectile.friendly = true;
-            Projectile.tileCollide = true;
+            Projectile.tileCollide = false;
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.ownerHitCheck = true;
@@ -35,7 +35,7 @@ namespace ModDeTchass.Content.Projectiles
             if (Projectile.soundDelay <= 0)
             {
                 SoundEngine.PlaySound(SoundID.Item22, Projectile.Center);
-                Projectile.soundDelay = 20;
+                Projectile.soundDelay = 30;
             }
 
             Vector2 playerCenter = player.RotatedRelativePoint(player.MountedCenter);

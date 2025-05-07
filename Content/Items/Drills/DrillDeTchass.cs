@@ -20,8 +20,8 @@ namespace ModDeTchass.Content.Items.Drills
             Item.damage = 60;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.knockBack = 0.5f;
-            Item.useTime = 999;
-            Item.useAnimation = 999;
+            Item.useTime = 60;
+            Item.useAnimation = 60;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.buyPrice(gold: 1);
             Item.UseSound = SoundID.Item23;

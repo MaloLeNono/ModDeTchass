@@ -65,6 +65,11 @@ Items: {
 		DisplayName: Drill De Tchass
 		Tooltip: ""
 	}
+
+	RepasDeTchass: {
+		DisplayName: Repas De Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
