@@ -14,7 +14,7 @@ namespace ModDeTchass.Content.Items.Consumables
 
         public override void SetDefaults()
         {
-            Item.DefaultToFood(30, 30, BuffID.WellFed3, 72000);
+            Item.DefaultToFood(30, 30, BuffID.WellFed3, 36000);
             Item.rare = ItemRarityID.Green;
             Item.value = Item.buyPrice(silver: 20);
         }

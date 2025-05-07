@@ -16,7 +16,7 @@ namespace ModDeTchass.Content.Items.Axes
             Item.useTime = 15;
             Item.useAnimation = 15;
             Item.DamageType = DamageClass.Melee;
-            Item.axe = 150;
+            Item.axe = 30;
             Item.damage = 80;
             Item.knockBack = 9;
             Item.UseSound = SoundID.Item1;
