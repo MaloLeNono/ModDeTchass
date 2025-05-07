@@ -36,7 +36,7 @@ namespace ModDeTchass.Content.Items.Consumables
         {
             if (player.whoAmI == Main.myPlayer)
             {
-                SoundEngine.PlaySound(SoundID.Roar);
+                SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
 
                 int type = ModContent.NPCType<BossDeTchass>();
 

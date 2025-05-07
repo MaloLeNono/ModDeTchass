@@ -8,6 +8,14 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <None Remove="Content\Sounds\Custom\BossSpawn.ogg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Content\Sounds\Custom\BossSpawn.ogg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
 	  <Folder Include="Content\Sounds\Music\" />
 	</ItemGroup>
 
