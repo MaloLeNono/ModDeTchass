@@ -1,0 +1,68 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	RawTchass: {
+		DisplayName: Raw Tchass
+		Tooltip: ""
+	}
+
+	BouffeDeTchass: {
+		DisplayName: Bouffe De Tchass
+		Tooltip: ""
+	}
+
+	PiocheDeTchass: {
+		DisplayName: Pioche De Tchass
+		Tooltip: ""
+	}
+
+	ÉpéeDeTchass: {
+		DisplayName: Épée De Tchass
+		Tooltip: ""
+	}
+
+	HacheDeTchass: {
+		DisplayName: Hache De Tchass
+		Tooltip: ""
+	}
+
+	MarteauDeTchass: {
+		DisplayName: Marteau De Tchass
+		Tooltip: ""
+	}
+
+	SuperTchass: {
+		DisplayName: Super Tchass
+		Tooltip: '''"Les gars j'achète de la bouffe de chat"'''
+	}
+
+	SuperPitchass: {
+		DisplayName: Super Pitchass
+		Tooltip: ""
+	}
+
+	TerraTchass: {
+		DisplayName: Terra Tchass
+		Tooltip: La Terra Blade si elle était based
+	}
+
+	SuspiciousLookingTchass: {
+		DisplayName: Suspicious Looking Tchass
+		Tooltip: OURSIN?!?!?!?!?!?
+	}
+
+	BFDTCHammer: {
+		DisplayName: BFDTCHammer
+		Tooltip: bfdtchs hammer hahaha
+	}
+
+	BFDTCHache: {
+		DisplayName: BFDTCHache
+		Tooltip: "bfdtchache hahaha"
+	}
+}
+
+Tiles.RawTchass.MapEntry: Raw Tchass
+WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage
+Projectiles.TchassProjectile.DisplayName: Tchass Projectile
+NPCs.BossDeTchass.DisplayName: Boss De Tchass
