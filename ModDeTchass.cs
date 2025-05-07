@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
@@ -12,7 +11,7 @@ namespace ModDeTchass
 
         public override void Load()
         {
-            LudoLaugh = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/BossSpawn")
+            LudoLaugh = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/LetsGo")
             {
                 Volume = 0.5f
             };
