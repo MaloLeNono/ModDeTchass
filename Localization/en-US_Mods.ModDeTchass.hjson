@@ -58,11 +58,21 @@ Items: {
 
 	BFDTCHache: {
 		DisplayName: BFDTCHache
-		Tooltip: "bfdtchache hahaha"
+		Tooltip: bfdtchache hahaha
+	}
+
+	DrillDeTchass: {
+		DisplayName: Drill De Tchass
+		Tooltip: ""
 	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
 WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage
-Projectiles.TchassProjectile.DisplayName: Tchass Projectile
+
+Projectiles: {
+	TchassProjectile.DisplayName: Tchass Projectile
+	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
+}
+
 NPCs.BossDeTchass.DisplayName: Boss De Tchass
