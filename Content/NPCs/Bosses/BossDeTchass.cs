@@ -24,7 +24,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.damage = 9999;
             NPC.defense = 0;
             NPC.lifeMax = 600;
-            NPC.HitSound = SoundID.NPCHit1;
+            NPC.HitSound = ModDeTchass.PiedsOursin;
             NPC.DeathSound = ModDeTchass.LudoEi;
             NPC.knockBackResist = 0;
             NPC.aiStyle = -1;

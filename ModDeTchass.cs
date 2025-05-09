@@ -8,6 +8,7 @@ namespace ModDeTchass
         public static SoundStyle LudoLaugh;
         public static SoundStyle LudoDrogue;
         public static SoundStyle LudoEi;
+        public static SoundStyle PiedsOursin;
 
         public override void Load()
         {
@@ -26,6 +27,12 @@ namespace ModDeTchass
             {
                 Volume = 1.5f,
                 PitchVariance = 0.1f
+            };
+
+            PiedsOursin = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/PiedsOursin")
+            {
+                Volume = 0.8f,
+                PitchVariance = 0.05f
             };
         }
     }
