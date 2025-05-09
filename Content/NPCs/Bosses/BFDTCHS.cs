@@ -1,6 +1,8 @@
-﻿using ModDeTchass.Common.Systems;
+﻿using Microsoft.Xna.Framework.Graphics;
+using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
-using Steamworks;
+using System.Numerics;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -9,7 +11,7 @@ using Terraria.ModLoader;
 namespace ModDeTchass.Content.NPCs.Bosses
 {
     [AutoloadBossHead]
-    class BossDeTchass : ModNPC
+    class BFDTCHS : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +26,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.height = 377;
             NPC.damage = 9999;
             NPC.defense = 0;
-            NPC.lifeMax = 600;
+            NPC.lifeMax = 1000000;
             NPC.HitSound = ModDeTchass.PiedsOursin;
             NPC.DeathSound = ModDeTchass.LudoEi;
             NPC.knockBackResist = 0;
@@ -34,7 +36,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.noTileCollide = false;
             NPC.SpawnWithHigherTime(10);
             NPC.npcSlots = 10f;
-            Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/BossDeTchassSong");
+            Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/bfdtchsSong");
         }
 
         public override void AI()
@@ -61,8 +63,9 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RawTchass>(), 1, 50, 70));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 10, 20));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SuperTchass>(), 1, 20, 30));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<M61Vulcan>(), 10, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 50, 70));
         }
     }
 }

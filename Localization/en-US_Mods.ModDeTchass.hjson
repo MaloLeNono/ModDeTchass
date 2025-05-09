@@ -75,6 +75,11 @@ Items: {
 		DisplayName: Gun De Tchass
 		Tooltip: ""
 	}
+
+	M61Vulcan: {
+		DisplayName: M61 Vulcan
+		Tooltip: VVVRRRRRRRRT
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -85,4 +90,7 @@ Projectiles: {
 	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
 }
 
-NPCs.BossDeTchass.DisplayName: Boss De Tchass
+NPCs: {
+	BossDeTchass.DisplayName: Boss De Tchass
+	BFDTCHS.DisplayName: B.F.D.T.C.H.S
+}

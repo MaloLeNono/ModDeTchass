@@ -9,6 +9,8 @@ namespace ModDeTchass
         public static SoundStyle LudoDrogue;
         public static SoundStyle LudoEi;
         public static SoundStyle PiedsOursin;
+        public static SoundStyle StrafeEnd;
+        public static SoundStyle M61Fire;
 
         public override void Load()
         {
@@ -33,6 +35,18 @@ namespace ModDeTchass
             {
                 Volume = 0.8f,
                 PitchVariance = 0.05f
+            };
+
+            StrafeEnd = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Guns/StrafeEnd")
+            {
+                Volume = 1.5f,
+                PitchVariance = 0.05f
+            };
+
+            M61Fire = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Guns/M61Fire")
+            {
+                Volume = 1.5f,
+                PitchVariance = 0.2f
             };
         }
     }
