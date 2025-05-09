@@ -34,7 +34,10 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.noTileCollide = false;
             NPC.SpawnWithHigherTime(10);
             NPC.npcSlots = 10f;
-            Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/BossDeTchassSong");
+            if (!Main.dedServ)
+            {
+                Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/BossDeTchassSong");
+            }
         }
 
         public override void AI()

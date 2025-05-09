@@ -16,8 +16,8 @@ namespace ModDeTchass.Content.Items.Consumables
 
         public override void SetDefaults()
         {
-            Item.width = 0;
-            Item.height = 0;
+            Item.width = 30;
+            Item.height = 30;
             Item.maxStack = 9999;
             Item.value = Item.buyPrice(gold: 1, silver: 50);
             Item.rare = ItemRarityID.Blue;

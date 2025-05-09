@@ -80,6 +80,11 @@ Items: {
 		DisplayName: M61 Vulcan
 		Tooltip: VVVRRRRRRRRT
 	}
+
+	CompressedSuperTchass: {
+		DisplayName: Compressed Super Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass

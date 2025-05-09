@@ -20,7 +20,7 @@ namespace ModDeTchass.Content.Items.Guns
             Item.shoot = ProjectileID.PurificationPowder;
             Item.shootSpeed = 15f;
             Item.DamageType = DamageClass.Ranged;
-            Item.damage = 120;
+            Item.damage = 300;
             Item.useTime = 2;
             Item.useAnimation = 2;
             Item.autoReuse = true;
