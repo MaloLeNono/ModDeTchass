@@ -14,7 +14,7 @@ namespace ModDeTchass.Content.Items.Consumables
         {
             Item.width = 0;
             Item.height = 0;
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.buyPrice(gold: 60);
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;

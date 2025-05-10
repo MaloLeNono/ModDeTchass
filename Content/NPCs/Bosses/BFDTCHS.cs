@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;

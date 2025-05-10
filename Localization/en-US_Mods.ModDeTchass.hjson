@@ -85,6 +85,11 @@ Items: {
 		DisplayName: Compressed Super Tchass
 		Tooltip: ""
 	}
+
+	_20mmBullet: {
+		DisplayName: 20mm Bullet
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -93,6 +98,7 @@ WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage
 Projectiles: {
 	TchassProjectile.DisplayName: Tchass Projectile
 	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
+	_20mmBullet.DisplayName: _20mm Bullet
 }
 
 NPCs: {
