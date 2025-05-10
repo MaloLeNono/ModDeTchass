@@ -90,6 +90,11 @@ Items: {
 		DisplayName: 20mm Bullet
 		Tooltip: ""
 	}
+
+	PotionDeTchass: {
+		DisplayName: Potion De Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass

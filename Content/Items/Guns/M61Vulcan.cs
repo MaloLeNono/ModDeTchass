@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using ModDeTchass.Content.Players;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -41,6 +40,24 @@ namespace ModDeTchass.Content.Items.Guns
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-1f, 0f);
+        }
+    }
+
+    class MyModPlayer : ModPlayer
+    {
+        public bool wasFiring;
+
+        public override void PostUpdate()
+        {
+            bool isFiring = Player.controlUseItem && Player.HeldItem.type == ModContent.ItemType<M61Vulcan>();
+
+            if (wasFiring && !isFiring)
+            {
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(ModDeTchass.StrafeEnd, Player.position);
+            }
+
+            wasFiring = isFiring;
         }
     }
 }
