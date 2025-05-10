@@ -18,10 +18,10 @@ namespace ModDeTchass.Content.Players
         {
             bool isFiring = Player.controlUseItem && Player.HeldItem.type == ModContent.ItemType<M61Vulcan>();
 
-
             if (wasFiring && !isFiring)
             {
-                SoundEngine.PlaySound(ModDeTchass.StrafeEnd, Player.position);
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(ModDeTchass.StrafeEnd, Player.position);
             }
 
             wasFiring = isFiring;

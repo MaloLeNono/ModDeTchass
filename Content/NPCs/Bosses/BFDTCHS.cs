@@ -4,6 +4,7 @@ using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -14,6 +15,9 @@ namespace ModDeTchass.Content.NPCs.Bosses
     [AutoloadBossHead]
     class BFDTCHS : ModNPC
     {
+        bool phase2 = false;
+        int projectileChance = 5;
+
         public override void SetStaticDefaults()
         {
             NPCID.Sets.MPAllowedEnemies[Type] = true;
@@ -55,10 +59,8 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 NPC.TargetClosest();
             }
 
-            Main.dayTime = false;
-
-
             Player player = Main.player[NPC.target];
+
             if (player.dead)
             {
                 NPC.noTileCollide = true;
@@ -70,42 +72,31 @@ namespace ModDeTchass.Content.NPCs.Bosses
             Vector2 direction = player.Center - NPC.Center;
             direction.Normalize();
             float speed = 7f;
-
             NPC.velocity = direction * speed;
+
+            if (NPC.life < NPC.lifeMax / 2 && !phase2)
+            {
+                NPC.netUpdate = true;
+                speed *= 1.5f;
+                projectileChance = 2;
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(SoundID.Roar, NPC.position);
+                phase2 = true;
+            }
         }
 
-        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int i = 0; i < 4; i++)
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
             }
 
-            if (Main.rand.NextBool(5))
+            if (Main.rand.NextBool(projectileChance))
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Player player = Main.player[NPC.target];
-                    Vector2 direction = player.Center - NPC.Center;
-                    direction.Normalize();
-                    Vector2 velocity = direction;
-                    IEntitySource source = NPC.GetSource_FromAI();
-                    Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
-                }
-            }
-        }
-
-        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
-            }
-
-            if (Main.rand.NextBool(5))
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
                     Vector2 direction = player.Center - NPC.Center;
                     direction.Normalize();
                     Vector2 velocity = direction;

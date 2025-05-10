@@ -99,6 +99,7 @@ Projectiles: {
 	TchassProjectile.DisplayName: Tchass Projectile
 	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
 	_20mmBullet.DisplayName: _20mm Bullet
+	TerraTchassProjectile.DisplayName: Terra Tchass Projectile
 }
 
 NPCs: {

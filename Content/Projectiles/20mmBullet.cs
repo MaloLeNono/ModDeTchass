@@ -19,8 +19,8 @@ namespace ModDeTchass.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 2;
-            Projectile.height = 60;
+            Projectile.width = 4;
+            Projectile.height = 4;
             Projectile.aiStyle = 1;
             Projectile.friendly = true;
             Projectile.hostile = false;
@@ -31,8 +31,13 @@ namespace ModDeTchass.Content.Projectiles
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            Projectile.extraUpdates = 1;
+            Projectile.extraUpdates = 7;
             AIType = ProjectileID.Bullet;
+        }
+
+        public override Color? GetAlpha(Color drawColor)
+        {
+            return Color.White;
         }
 
         public override bool PreDraw(ref Color lightColor)

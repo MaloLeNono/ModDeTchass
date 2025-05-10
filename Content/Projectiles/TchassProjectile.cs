@@ -10,9 +10,11 @@ namespace ModDeTchass.Content.Projectiles
 {
     class TchassProjectile : ModProjectile
     {
+        bool canPlaySound = true;
+
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
 
@@ -25,7 +27,7 @@ namespace ModDeTchass.Content.Projectiles
             Projectile.hostile = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 1;
-            Projectile.timeLeft = 90;
+            Projectile.timeLeft = Main.rand.Next(90, 120);
             Projectile.alpha = 0;
             Projectile.light = 1f;
             Projectile.ignoreWater = true;
@@ -36,9 +38,15 @@ namespace ModDeTchass.Content.Projectiles
 
         public override void AI()
         {
+            if (!Main.dedServ && canPlaySound)
+            {
+                SoundEngine.PlaySound(ModDeTchass.LudoEi, Projectile.position); // Placeholder
+                canPlaySound = false;
+            }
+
             Player player = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
 
-            float speed = 9f;
+            float speed = 7.5f;
             Vector2 direction = player.Center - Projectile.Center;
             direction.Normalize();
             Projectile.velocity = direction * speed;
@@ -63,6 +71,10 @@ namespace ModDeTchass.Content.Projectiles
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            for (int i = 0; i < 5; i++)
+            {
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.ShimmerSpark, Scale: 2);
+            }
         }
     }
 }
