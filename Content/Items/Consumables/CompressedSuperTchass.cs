@@ -25,7 +25,7 @@ namespace ModDeTchass.Content.Items.Consumables
 
         public override bool CanUseItem(Player player)
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<BossDeTchass>()) && Condition.Hardmode.IsMet() && Condition.DownedMechBossAll.IsMet() && DownedBossSystem.downedBossDeTchass;
+            return !NPC.AnyNPCs(ModContent.NPCType<BFDTCHS>()) && Condition.Hardmode.IsMet() && Condition.DownedMechBossAll.IsMet() && DownedBossSystem.downedBossDeTchass;
         }
 
         public override bool? UseItem(Player player)

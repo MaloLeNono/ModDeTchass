@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
+using ModDeTchass.Content.Projectiles;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -48,12 +51,13 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
         public override void AI()
         {
-            Main.dayTime = false;
-
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
                 NPC.TargetClosest();
             }
+
+            Main.dayTime = false;
+
 
             Player player = Main.player[NPC.target];
             if (player.dead)
@@ -77,6 +81,19 @@ namespace ModDeTchass.Content.NPCs.Bosses
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
             }
+
+            if (Main.rand.NextBool(5))
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Player player = Main.player[NPC.target];
+                    Vector2 direction = player.Center - NPC.Center;
+                    direction.Normalize();
+                    Vector2 velocity = direction;
+                    IEntitySource source = NPC.GetSource_FromAI();
+                    Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                }
+            }
         }
 
         public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
@@ -84,6 +101,18 @@ namespace ModDeTchass.Content.NPCs.Bosses
             for (int i = 0; i < 4; i++)
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
+            }
+
+            if (Main.rand.NextBool(5))
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Vector2 direction = player.Center - NPC.Center;
+                    direction.Normalize();
+                    Vector2 velocity = direction;
+                    IEntitySource source = NPC.GetSource_FromAI();
+                    Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                }
             }
         }
 
