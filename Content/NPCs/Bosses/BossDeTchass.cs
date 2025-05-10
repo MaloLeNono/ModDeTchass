@@ -1,4 +1,5 @@
 ﻿using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Items.Consumables;
 using ModDeTchass.Content.Items.Materials;
 using Steamworks;
 using Terraria;
@@ -65,6 +66,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RawTchass>(), 1, 50, 70));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteMonster>(), 1, 1, 1));
             npcLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 1, 10, 20));
         }
     }
