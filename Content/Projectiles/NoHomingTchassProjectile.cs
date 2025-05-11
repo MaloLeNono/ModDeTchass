@@ -40,7 +40,7 @@ namespace ModDeTchass.Content.Projectiles
         {
             if (!Main.dedServ && canPlaySound)
             {
-                SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
+                SoundEngine.PlaySound(ModDeTchass.OursinEi, Projectile.position);
                 canPlaySound = false;
             }
         }

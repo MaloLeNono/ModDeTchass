@@ -3,11 +3,14 @@ using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.NPCs.Bosses
@@ -33,7 +36,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.damage = 9999;
             NPC.defense = 0;
             NPC.lifeMax = 500000;
-            NPC.HitSound = ModDeTchass.PiedsOursin;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = ModDeTchass.LudoEi;
             NPC.knockBackResist = 0;
             NPC.aiStyle = -1;
@@ -50,17 +53,20 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
         public override Color? GetAlpha(Color drawColor)
         {
-            return Color.White;
+            return phase2 ? Color.Red : Color.White;
         }
 
         public override void AI()
         {
+            float distance;
+
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
                 NPC.TargetClosest();
             }
 
             Player player = Main.player[NPC.target];
+            distance = (float)Math.Sqrt(Math.Pow(NPC.position.X - player.position.X, 2) + Math.Pow(NPC.position.Y - player.position.Y, 2));
 
             if (player.dead)
             {
@@ -68,6 +74,13 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 NPC.velocity.Y -= 50;
                 NPC.EncourageDespawn(10);
                 return;
+            }
+             
+            if (distance > 1500)
+            {
+                speed = 12f;
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
             }
 
             Vector2 direction = player.Center - NPC.Center;
@@ -77,10 +90,11 @@ namespace ModDeTchass.Content.NPCs.Bosses
             if (NPC.life < NPC.lifeMax / 2 && !phase2)
             {
                 NPC.netUpdate = true;
+                NPC.HitSound = SoundID.NPCHit4;
                 speed *= 1.2f;
                 projectileChance = 2;
                 if (!Main.dedServ)
-                    SoundEngine.PlaySound(SoundID.Roar, NPC.position);
+                    SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
                 phase2 = true;
             }
         }
@@ -88,6 +102,9 @@ namespace ModDeTchass.Content.NPCs.Bosses
         public override void HitEffect(NPC.HitInfo hit)
         {
             Player player = Main.player[NPC.target];
+
+            if (!Main.dedServ)
+                SoundEngine.PlaySound(ModDeTchass.PiedsOursin, NPC.position);
 
             for (int i = 0; i < 4; i++)
             {
