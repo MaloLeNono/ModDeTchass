@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
@@ -6,11 +7,10 @@ using ModDeTchass.Content.Projectiles;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.NPCs.Bosses
@@ -19,8 +19,10 @@ namespace ModDeTchass.Content.NPCs.Bosses
     class BFDTCHS : ModNPC
     {
         bool phase2 = false;
+        bool enraged = false;
         int projectileChance = 5;
         float speed = 7f;
+        int timer;
 
         public override void SetStaticDefaults()
         {
@@ -53,9 +55,10 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
         public override Color? GetAlpha(Color drawColor)
         {
-            return phase2 ? Color.Red : Color.White;
+            return phase2 || enraged ? Color.Red : Color.White;
         }
 
+        
         public override void AI()
         {
             float distance;
@@ -64,6 +67,8 @@ namespace ModDeTchass.Content.NPCs.Bosses
             {
                 NPC.TargetClosest();
             }
+
+            timer++;
 
             Player player = Main.player[NPC.target];
             distance = (float)Math.Sqrt(Math.Pow(NPC.position.X - player.position.X, 2) + Math.Pow(NPC.position.Y - player.position.Y, 2));
@@ -76,9 +81,10 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 return;
             }
              
-            if (distance > 1500)
+            if (distance > 1500 && timer >= 300)
             {
                 speed = 12f;
+                enraged = true;
                 if (!Main.dedServ)
                     SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
             }
