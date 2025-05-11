@@ -56,8 +56,8 @@ namespace ModDeTchass.Content.Items.Consumables
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<RawTchass>(5)
-                .AddIngredient(ItemID.StoneBlock, 10)
+                .AddIngredient<BouffeDeTchass>(15)
+                .AddIngredient<RepasDeTchass>()
                 .AddTile(TileID.DemonAltar)
                 .Register();
         }

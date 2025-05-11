@@ -11,7 +11,7 @@ namespace ModDeTchass.Content.Items.Materials
             Item.width = 30;
             Item.height = 30;
             Item.value = Item.buyPrice(gold: 20);
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Expert;
         }
 

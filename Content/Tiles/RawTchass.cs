@@ -29,7 +29,7 @@ namespace ModDeTchass.Content.Tiles
             DustType = 84;
             HitSound = SoundID.Tink;
             MineResist = 4f;
-            MinPick = 60;
+            MinPick = 40;
         }
     }
 

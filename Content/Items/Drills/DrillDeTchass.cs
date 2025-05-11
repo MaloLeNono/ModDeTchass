@@ -27,6 +27,7 @@ namespace ModDeTchass.Content.Items.Drills
             Item.UseSound = SoundID.Item23;
             Item.shoot = ModContent.ProjectileType<DrillDeTchassProjectile>();
             Item.shootSpeed = 32f;
+            Item.rare = ItemRarityID.Blue;
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.channel = true;

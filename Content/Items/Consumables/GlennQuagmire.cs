@@ -33,6 +33,7 @@ namespace ModDeTchass.Content.Items.Consumables
             CreateRecipe()
                 .AddIngredient<RawTchass>(5)
                 .AddIngredient<BouffeDeTchass>(5)
+                .AddIngredient<GoldenTchass>(5)
                 .AddIngredient<SuperTchass>(5)
                 .AddTile(TileID.WorkBenches)
                 .Register();

@@ -3,22 +3,22 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModDeTchass.Content.Items.Hammers
+namespace ModDeTchass.Content.Items.Axes
 {
-    class MarteauDeTchass : ModItem
+    class HacheEnGoldenTchass : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 38;
-            Item.height = 38;
+            Item.width = 36;
+            Item.height = 32;
             Item.value = Item.buyPrice(gold: 1);
-            Item.hammer = 1;
-            Item.useTime = 1;
-            Item.rare = ItemRarityID.Blue;
-            Item.useAnimation = 2;
+            Item.axe = 11; // 55 
+            Item.useTime = 20;
+            Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 99;
-            Item.damage = 1;
+            Item.knockBack = 6;
+            Item.damage = 10;
+            Item.rare = ItemRarityID.Yellow;
             Item.DamageType = DamageClass.Melee;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -27,8 +27,8 @@ namespace ModDeTchass.Content.Items.Hammers
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<BouffeDeTchass>(40)
-                .AddIngredient(ItemID.Wood, 10)
+                .AddIngredient<GoldenTchass>(10)
+                .AddIngredient(ItemID.Wood, 5)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

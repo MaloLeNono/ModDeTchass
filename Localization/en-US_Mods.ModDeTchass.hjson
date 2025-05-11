@@ -135,6 +135,31 @@ Items: {
 			giggity
 			'''
 	}
+
+	GoldenTchass: {
+		DisplayName: Golden Tchass
+		Tooltip: Fait d'or MASSIF
+	}
+
+	ÉpéeEnGoldenTchass: {
+		DisplayName: Épée En Golden Tchass
+		Tooltip: ""
+	}
+
+	PiocheEnGoldenTchass: {
+		DisplayName: Pioche En Golden Tchass
+		Tooltip: ""
+	}
+
+	HacheEnGoldenTchass: {
+		DisplayName: Hache En Golden Tchass
+		Tooltip: ""
+	}
+
+	MarteauEnGoldenTchass: {
+		DisplayName: Marteau En Golden Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass

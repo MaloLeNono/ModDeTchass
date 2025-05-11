@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.Items.Hammers
 {
-    class MarteauDeTchass : ModItem
+    class MarteauEnGoldenTchass : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 38;
-            Item.height = 38;
-            Item.value = Item.buyPrice(gold: 1);
-            Item.hammer = 1;
-            Item.useTime = 1;
-            Item.rare = ItemRarityID.Blue;
-            Item.useAnimation = 2;
+            Item.width = 40;
+            Item.height = 40;
+            Item.value = Item.buyPrice(silver: 25);
+            Item.hammer = 55;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 99;
-            Item.damage = 1;
+            Item.knockBack = 6;
+            Item.rare = ItemRarityID.Yellow;
+            Item.damage = 10;
             Item.DamageType = DamageClass.Melee;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -27,8 +27,8 @@ namespace ModDeTchass.Content.Items.Hammers
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<BouffeDeTchass>(40)
-                .AddIngredient(ItemID.Wood, 10)
+                .AddIngredient<GoldenTchass>(15)
+                .AddIngredient(ItemID.Wood, 5)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

@@ -12,7 +12,7 @@ namespace ModDeTchass.Content.Items.Materials
             Item.height = 30;
             Item.value = Item.buyPrice(silver: 15);
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.RawTchass>());
-            Item.maxStack = 9999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Blue;
         }
     }

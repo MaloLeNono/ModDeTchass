@@ -1,7 +1,6 @@
 ﻿using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Consumables;
 using ModDeTchass.Content.Items.Materials;
-using Steamworks;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
