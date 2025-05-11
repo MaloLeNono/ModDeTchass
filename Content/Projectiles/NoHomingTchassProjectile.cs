@@ -8,31 +8,31 @@ using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.Projectiles
 {
-    class TchassProjectile : ModProjectile
+    class NoHomingTchassProjectile : ModProjectile
     {
         bool canPlaySound = true;
 
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 60;
+            Projectile.width = 30;
             Projectile.height = 30;
-            Projectile.aiStyle = -1;
+            Projectile.aiStyle = 1;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 1;
-            Projectile.timeLeft = Main.rand.Next(90, 150);
+            Projectile.timeLeft = 300;
             Projectile.alpha = 0;
             Projectile.light = 1f;
             Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
-            Projectile.extraUpdates = 1;
+            Projectile.tileCollide = true;
+            Projectile.extraUpdates = 2;
             AIType = ProjectileID.Bullet;
         }
 
@@ -40,17 +40,9 @@ namespace ModDeTchass.Content.Projectiles
         {
             if (!Main.dedServ && canPlaySound)
             {
-                SoundEngine.PlaySound(ModDeTchass.LudoEi, Projectile.position); // Placeholder
+                SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
                 canPlaySound = false;
             }
-
-            Player player = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
-
-            float speed = 7.5f;
-            Vector2 direction = player.Center - Projectile.Center;
-            direction.Normalize();
-            Projectile.velocity = direction * speed;
-            Projectile.rotation = Projectile.velocity.ToRotation() - 90;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -70,11 +62,9 @@ namespace ModDeTchass.Content.Projectiles
 
         public override void OnKill(int timeLeft)
         {
+            Collision.TileCollision(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.ShimmerSpark, Scale: 2);
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-            for (int i = 0; i < 5; i++)
-            {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.ShimmerSpark, Scale: 2);
-            }
         }
     }
 }

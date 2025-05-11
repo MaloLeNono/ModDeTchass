@@ -1,4 +1,8 @@
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ModDeTchass
@@ -48,6 +52,12 @@ namespace ModDeTchass
                 Volume = 1.5f,
                 PitchVariance = 0.2f
             };
+
+            /*Main.instance.LoadNPC(NPCID.Guide);
+            TextureAssets.Npc[NPCID.Guide] = ModContent.Request<Texture2D>
+                ("ModDeTchass/Content/Textures/Guide_Default");
+            TextureAssets.NpcHead[NPCHeadID.Guide] = ModContent.Request<Texture2D>
+                ("ModDeTchass/Content/Textures/NPC_Head_1");*/
         }
     }
 }

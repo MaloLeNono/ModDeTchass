@@ -30,5 +30,10 @@ namespace ModDeTchass.Content.Items.Consumables
             Item.rare = ItemRarityID.Green;
             Item.value = Item.buyPrice(gold: 2);
         }
+
+        public override bool? UseItem(Player player)
+        {
+            return true;
+        }
     }
 }

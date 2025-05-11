@@ -34,6 +34,11 @@ namespace ModDeTchass.Content.Items.Consumables
             Item.buffTime = 13800;
         }
 
+        public override void OnConsumeItem(Player player)
+        {
+
+        }
+
         public override void AddRecipes()
         {
             CreateRecipe()

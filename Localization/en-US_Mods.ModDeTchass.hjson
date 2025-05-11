@@ -95,6 +95,11 @@ Items: {
 		DisplayName: Potion De Tchass
 		Tooltip: Legit pourquoi grios
 	}
+
+	WhiteMonster: {
+		DisplayName: White Monster
+		Tooltip: Juste pour toi oursin
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -105,6 +110,7 @@ Projectiles: {
 	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
 	_20mmBullet.DisplayName: _20mm Bullet
 	TerraTchassProjectile.DisplayName: Terra Tchass Projectile
+	NoHomingTchassProjectile.DisplayName: No Homing Tchass Projectile
 }
 
 NPCs: {

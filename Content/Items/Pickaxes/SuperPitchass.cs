@@ -16,6 +16,7 @@ namespace ModDeTchass.Content.Items.Pickaxes
             Item.pick = 220;
             Item.useTime = 5;
             Item.useAnimation = 5;
+            Item.useTurn = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
             Item.damage = 50;

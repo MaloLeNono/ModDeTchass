@@ -31,7 +31,7 @@ namespace ModDeTchass.Content.Projectiles
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            Projectile.extraUpdates = 7;
+            Projectile.extraUpdates = 5;
             AIType = ProjectileID.Bullet;
         }
 

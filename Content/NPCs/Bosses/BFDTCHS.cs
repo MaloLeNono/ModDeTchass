@@ -17,6 +17,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
     {
         bool phase2 = false;
         int projectileChance = 5;
+        float speed = 7f;
 
         public override void SetStaticDefaults()
         {
@@ -71,13 +72,12 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
             Vector2 direction = player.Center - NPC.Center;
             direction.Normalize();
-            float speed = 7f;
             NPC.velocity = direction * speed;
 
             if (NPC.life < NPC.lifeMax / 2 && !phase2)
             {
                 NPC.netUpdate = true;
-                speed *= 1.5f;
+                speed *= 1.2f;
                 projectileChance = 2;
                 if (!Main.dedServ)
                     SoundEngine.PlaySound(SoundID.Roar, NPC.position);
@@ -87,21 +87,32 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
         public override void HitEffect(NPC.HitInfo hit)
         {
+            Player player = Main.player[NPC.target];
+
             for (int i = 0; i < 4; i++)
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
             }
 
-            if (Main.rand.NextBool(projectileChance))
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.rand.NextBool(projectileChance))
                 {
-                    Player player = Main.player[NPC.target];
                     Vector2 direction = player.Center - NPC.Center;
                     direction.Normalize();
-                    Vector2 velocity = direction;
                     IEntitySource source = NPC.GetSource_FromAI();
-                    Projectile.NewProjectile(source, NPC.Center, velocity, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                    Projectile.NewProjectile(source, NPC.Center, direction, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                }
+            }
+
+            if (Main.netMode != NetmodeID.MultiplayerClient && phase2)
+            {
+                if (Main.rand.NextBool(projectileChance))
+                {
+                    Vector2 direction = player.Center - NPC.Center;
+                    direction.Normalize();
+                    IEntitySource source = NPC.GetSource_FromAI();
+                    Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
                 }
             }
         }
