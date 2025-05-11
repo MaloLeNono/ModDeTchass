@@ -15,6 +15,7 @@ namespace ModDeTchass
         public static SoundStyle PiedsOursin;
         public static SoundStyle StrafeEnd;
         public static SoundStyle M61Fire;
+        public static SoundStyle GlennQuagmire;
 
         public override void Load()
         {
@@ -51,6 +52,11 @@ namespace ModDeTchass
             {
                 Volume = 1.5f,
                 PitchVariance = 0.2f
+            };
+
+            GlennQuagmire = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/GlennQuagmire")
+            {
+                Volume = 1.5f
             };
 
             /*Main.instance.LoadNPC(NPCID.Guide);

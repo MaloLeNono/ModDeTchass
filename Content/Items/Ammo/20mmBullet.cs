@@ -27,7 +27,8 @@ namespace ModDeTchass.Content.Items.Ammo
             CreateRecipe(50)
                 .AddIngredient(ItemID.EmptyBullet, 50)
                 .AddIngredient<SuperTchass>(1)
-                .AddTile(TileID.Anvils);
+                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

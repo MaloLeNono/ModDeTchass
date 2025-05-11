@@ -45,6 +45,8 @@ namespace ModDeTchass.Content.Items.Consumables
                 .AddIngredient<RawTchass>(1)
                 .AddIngredient(ItemID.Mushroom, 1)
                 .AddIngredient(ItemID.BottledWater)
+                .AddTile(TileID.Tables)
+                .AddTile(TileID.Bottles)
                 .Register();
         }
     }
