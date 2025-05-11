@@ -3,12 +3,12 @@
 Items: {
 	RawTchass: {
 		DisplayName: Raw Tchass
-		Tooltip: ""
+		Tooltip: Loo tapeu fae
 	}
 
 	BouffeDeTchass: {
 		DisplayName: Bouffe De Tchass
-		Tooltip: ""
+		Tooltip: bfdtchs
 	}
 
 	PiocheDeTchass: {
@@ -48,7 +48,7 @@ Items: {
 
 	SuspiciousLookingTchass: {
 		DisplayName: Suspicious Looking Tchass
-		Tooltip: OURSIN?!?!?!?!?!?
+		Tooltip: Summons OURSIN?!?!?!?!?!?
 	}
 
 	BFDTCHammer: {
@@ -63,17 +63,17 @@ Items: {
 
 	DrillDeTchass: {
 		DisplayName: Drill De Tchass
-		Tooltip: ""
+		Tooltip: Fuck you justin
 	}
 
 	RepasDeTchass: {
 		DisplayName: Repas De Tchass
-		Tooltip: ""
+		Tooltip: GET OUT
 	}
 
 	GunDeTchass: {
 		DisplayName: Gun De Tchass
-		Tooltip: ""
+		Tooltip: L'arme No. 1 des YN
 	}
 
 	M61Vulcan: {
@@ -83,7 +83,7 @@ Items: {
 
 	CompressedSuperTchass: {
 		DisplayName: Compressed Super Tchass
-		Tooltip: ""
+		Tooltip: Summons B.F.D.T.C.H.S
 	}
 
 	_20mmBullet: {
@@ -108,7 +108,7 @@ WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage
 Projectiles: {
 	TchassProjectile.DisplayName: Tchass Projectile
 	DrillDeTchassProjectile.DisplayName: Drill De Tchass Projectile
-	_20mmBullet.DisplayName: _20mm Bullet
+	_20mmBullet.DisplayName: 20mm Bullet
 	TerraTchassProjectile.DisplayName: Terra Tchass Projectile
 	NoHomingTchassProjectile.DisplayName: No Homing Tchass Projectile
 }
