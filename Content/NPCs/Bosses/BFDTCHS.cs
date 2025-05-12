@@ -71,12 +71,13 @@ namespace ModDeTchass.Content.NPCs.Bosses
             timer++;
 
             Player player = Main.player[NPC.target];
-            distance = (float)Math.Sqrt(Math.Pow(NPC.position.X - player.position.X, 2) + Math.Pow(NPC.position.Y - player.position.Y, 2));
+            distance = NPC.Distance(player.Center);
+            NPC.velocity = NPC.DirectionTo(player.Center) * speed;
 
             if (player.dead)
             {
                 NPC.noTileCollide = true;
-                NPC.velocity.Y -= 50;
+                NPC.velocity = NPC.DirectionFrom(player.Center) * 50;
                 NPC.EncourageDespawn(10);
                 return;
             }
@@ -88,10 +89,6 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 if (!Main.dedServ)
                     SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
             }
-
-            Vector2 direction = player.Center - NPC.Center;
-            direction.Normalize();
-            NPC.velocity = direction * speed;
 
             if (NPC.life < NPC.lifeMax / 2 && !phase2)
             {
