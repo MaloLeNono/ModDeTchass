@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using Terraria.DataStructures;
 
 namespace ModDeTchass.Content.Projectiles
 {
@@ -33,11 +32,6 @@ namespace ModDeTchass.Content.Projectiles
             Projectile.tileCollide = true;
             Projectile.extraUpdates = 5;
             AIType = ProjectileID.Bullet;
-        }
-
-        public override Color? GetAlpha(Color drawColor)
-        {
-            return Color.White;
         }
 
         public override bool PreDraw(ref Color lightColor)

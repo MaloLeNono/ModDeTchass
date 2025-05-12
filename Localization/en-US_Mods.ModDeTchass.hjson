@@ -160,6 +160,16 @@ Items: {
 		DisplayName: Marteau En Golden Tchass
 		Tooltip: ""
 	}
+
+	CanOfInsects: {
+		DisplayName: Can Of Insects
+		Tooltip: Bardon
+	}
+
+	StockholmSyndrome: {
+		DisplayName: Stockholm Syndrome
+		Tooltip: ???
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
