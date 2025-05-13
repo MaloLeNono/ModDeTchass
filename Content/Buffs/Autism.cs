@@ -33,6 +33,5 @@ namespace ModDeTchass.Content.Buffs
 
     /*class AutismPlayer : ModPlayer
     {
-        
-    }*/
+    } in case i want to add shit im gonna leave this commented for now bfdtchs */
 }

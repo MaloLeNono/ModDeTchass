@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
-using Mono.Cecil;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

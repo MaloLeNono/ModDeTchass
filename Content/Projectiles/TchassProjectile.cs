@@ -20,8 +20,8 @@ namespace ModDeTchass.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 60;
-            Projectile.height = 30;
+            Projectile.width = 30;
+            Projectile.height = 60;
             Projectile.aiStyle = -1;
             Projectile.friendly = false;
             Projectile.hostile = true;
@@ -50,7 +50,7 @@ namespace ModDeTchass.Content.Projectiles
             Vector2 direction = player.Center - Projectile.Center;
             direction.Normalize();
             Projectile.velocity = direction * speed;
-            Projectile.rotation = Projectile.velocity.ToRotation() - 90;
+            Projectile.rotation = Projectile.velocity.ToRotation();
         }
 
         public override bool PreDraw(ref Color lightColor)
