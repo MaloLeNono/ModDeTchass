@@ -5,12 +5,12 @@
 
 	<!-- General -->
 	<PropertyGroup>
-		
+
 	</PropertyGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="Content\Sounds\Custom\LetsGo.ogg">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </EmbeddedResource>
+		<EmbeddedResource Include="Content\Sounds\Custom\LetsGo.ogg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<!-- References -->

@@ -6,29 +6,31 @@ using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.Items.Consumables
 {
-    class Vaccin : ModItem
+    class Prime : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 10;
-            Item.height = 46;
-            Item.value = Item.buyPrice(silver: 2);
+            Item.width = 9;
+            Item.height = 25;
+            Item.value = Item.buyPrice(silver: 2, copper: 99);
+            Item.consumable = true;
+            Item.UseSound = SoundID.Item3;
+            Item.useStyle = ItemUseStyleID.DrinkLiquid;
+            Item.useTurn = true;
+            Item.buffType = ModContent.BuffType<Cancer>();
+            Item.buffTime = 99999999;
             Item.maxStack = Item.CommonMaxStack;
-            Item.UseSound = SoundID.NPCHit1;
+            Item.rare = ItemRarityID.Cyan;
             Item.useTime = 15;
             Item.useAnimation = 15;
-            Item.useStyle = ItemUseStyleID.Thrust;
-            Item.useTurn = true;
-            Item.consumable = true;
-            Item.buffType = ModContent.BuffType<Autism>();
-            Item.buffTime = 99999999;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
+                .AddIngredient<Microplastics>(5)
+                .AddIngredient(ItemID.Deathweed)
                 .AddIngredient(ItemID.BottledWater)
-                .AddIngredient<BouffeDeTchass>(5)
                 .AddTile(TileID.AlchemyTable)
                 .Register();
         }

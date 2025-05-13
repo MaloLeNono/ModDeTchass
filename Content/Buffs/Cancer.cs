@@ -1,17 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Terraria;
 using Terraria.ID;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.Buffs
 {
-    class Autism : ModBuff
+    class Cancer : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -25,14 +23,6 @@ namespace ModDeTchass.Content.Buffs
         {
             player.moveSpeed = 0.15f;
             player.maxRunSpeed = 1f;
-            player.maxMinions = 1;
-            player.lifeRegen = 0;
-            player.statDefense -= 50;
-            player.AddBuff(BuffID.Confused, 99999999);
         }
     }
-
-    /*class AutismPlayer : ModPlayer
-    {
-    }*/
 }

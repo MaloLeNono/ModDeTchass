@@ -1,15 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent;
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria.GameContent.UI.BigProgressBar;
+using Terraria.GameContent;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.BossBars
 {
-    class BfdtchsBossBar : ModBossBar
+    class BfdtchsEnragedBossBar : ModBossBar
     {
         private int bossHeadIndex = -1;
 

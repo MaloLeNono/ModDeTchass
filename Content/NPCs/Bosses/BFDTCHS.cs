@@ -139,6 +139,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
         {
             if (distance > 1500 && timer >= 300)
             {
+                NPC.BossBar = ModContent.GetInstance<BfdtchsEnragedBossBar>();
                 speed = 12f;
                 enraged = true;
                 if (!Main.dedServ)

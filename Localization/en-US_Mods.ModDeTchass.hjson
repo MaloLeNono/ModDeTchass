@@ -175,6 +175,16 @@ Items: {
 		DisplayName: Vaccin
 		Tooltip: ""
 	}
+
+	Microplastics: {
+		DisplayName: Microplastics
+		Tooltip: ""
+	}
+
+	Prime: {
+		DisplayName: Prime
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -202,5 +212,10 @@ Buffs: {
 	Insectes: {
 		DisplayName: Insectes
 		Description: bzz bzz
+	}
+
+	Cancer: {
+		DisplayName: Cancer
+		Description: Ton cancer dormant s'est réveillé quand tu as bu le Prime
 	}
 }
