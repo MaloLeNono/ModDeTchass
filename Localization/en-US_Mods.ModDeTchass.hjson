@@ -170,6 +170,11 @@ Items: {
 		DisplayName: Stockholm Syndrome
 		Tooltip: ???
 	}
+
+	Vaccin: {
+		DisplayName: Vaccin
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -186,4 +191,16 @@ Projectiles: {
 NPCs: {
 	BossDeTchass.DisplayName: Boss De Tchass
 	BFDTCHS.DisplayName: B.F.D.T.C.H.S
+}
+
+Buffs: {
+	Autism: {
+		DisplayName: Autism
+		Description: Le spectre de l'autisme
+	}
+
+	Insectes: {
+		DisplayName: Insectes
+		Description: bzz bzz
+	}
 }

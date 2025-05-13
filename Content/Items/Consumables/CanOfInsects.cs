@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Items.Materials;
+﻿using ModDeTchass.Content.Buffs;
+using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace ModDeTchass.Content.Items.Consumables
             Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.rare = ItemRarityID.Gray;
-            Item.buffType = BuffID.OnFire3;
+            Item.buffType = ModContent.BuffType<Insectes>();
             Item.buffTime = 99999999;
             Item.useAnimation = 15;
             Item.useTime = 15;

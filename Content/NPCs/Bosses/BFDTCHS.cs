@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
-using System;
+using Mono.Cecil;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,6 +22,8 @@ namespace ModDeTchass.Content.NPCs.Bosses
         int projectileChance = 5;
         float speed = 7f;
         int timer;
+        int projTimer = 6;
+        int rotation = 0;
 
         public override void SetStaticDefaults()
         {
@@ -61,8 +62,6 @@ namespace ModDeTchass.Content.NPCs.Bosses
         
         public override void AI()
         {
-            float distance;
-
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
                 NPC.TargetClosest();
@@ -70,9 +69,13 @@ namespace ModDeTchass.Content.NPCs.Bosses
 
             timer++;
 
+            if (phase2)
+                projTimer++;
+
             Player player = Main.player[NPC.target];
-            distance = NPC.Distance(player.Center);
-            NPC.velocity = NPC.DirectionTo(player.Center) * speed;
+            float distance = NPC.Distance(player.Center);
+            Vector2 direction = NPC.DirectionTo(player.Center);
+            NPC.velocity = direction * speed;
 
             if (player.dead)
             {
@@ -81,15 +84,45 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 NPC.EncourageDespawn(10);
                 return;
             }
-             
-            if (distance > 1500 && timer >= 300)
+
+            CheckEnraged(distance);
+
+            CheckSecondPhase();
+
+            FireAngleProjectiles(direction);
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (!Main.dedServ)
+                SoundEngine.PlaySound(ModDeTchass.PiedsOursin, NPC.position);
+
+            for (int i = 0; i < 4; i++)
             {
-                speed = 12f;
-                enraged = true;
-                if (!Main.dedServ)
-                    SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
             }
 
+            FireRandomOnHit();
+        }
+
+        private void FireAngleProjectiles(Vector2 direction)
+        {
+            IEntitySource source = NPC.GetSource_FromAI();
+            if (Main.netMode != NetmodeID.MultiplayerClient && phase2 && projTimer >= 6)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    Vector2 newDir = direction.RotatedBy(MathHelper.ToRadians(rotation));
+                    Projectile.NewProjectile(source, NPC.Center, newDir * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
+                    rotation += 90;
+                }
+                projTimer = 0;
+                rotation += 45;
+            }
+        }
+
+        private void CheckSecondPhase()
+        {
             if (NPC.life < NPC.lifeMax / 2 && !phase2)
             {
                 NPC.netUpdate = true;
@@ -102,25 +135,27 @@ namespace ModDeTchass.Content.NPCs.Bosses
             }
         }
 
-        public override void HitEffect(NPC.HitInfo hit)
+        private void CheckEnraged(float distance)
+        {
+            if (distance > 1500 && timer >= 300)
+            {
+                speed = 12f;
+                enraged = true;
+                if (!Main.dedServ)
+                    SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
+            }
+        }
+
+        private void FireRandomOnHit()
         {
             Player player = Main.player[NPC.target];
-
-            if (!Main.dedServ)
-                SoundEngine.PlaySound(ModDeTchass.PiedsOursin, NPC.position);
-
-            for (int i = 0; i < 4; i++)
-            {
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.ShimmerSpark, Scale: 4);
-            }
+            Vector2 direction = NPC.DirectionTo(player.Center);
+            IEntitySource source = NPC.GetSource_FromAI();
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (Main.rand.NextBool(projectileChance))
                 {
-                    Vector2 direction = player.Center - NPC.Center;
-                    direction.Normalize();
-                    IEntitySource source = NPC.GetSource_FromAI();
                     Projectile.NewProjectile(source, NPC.Center, direction, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
                 }
             }
@@ -129,9 +164,6 @@ namespace ModDeTchass.Content.NPCs.Bosses
             {
                 if (Main.rand.NextBool(projectileChance))
                 {
-                    Vector2 direction = player.Center - NPC.Center;
-                    direction.Normalize();
-                    IEntitySource source = NPC.GetSource_FromAI();
                     Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
                 }
             }
