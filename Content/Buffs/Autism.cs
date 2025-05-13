@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace ModDeTchass.Content.Buffs
             player.moveSpeed = 0.15f;
             player.maxRunSpeed = 1f;
             player.maxMinions = 1;
-            player.lifeRegen--;
+            player.lifeRegen = 0;
             player.statDefense -= 50;
             player.AddBuff(BuffID.Confused, 1632000);
         }
@@ -33,5 +34,5 @@ namespace ModDeTchass.Content.Buffs
 
     /*class AutismPlayer : ModPlayer
     {
-    } in case i want to add shit im gonna leave this commented for now bfdtchs */
+    }*/
 }

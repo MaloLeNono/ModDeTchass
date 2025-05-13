@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.BossBars;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
@@ -43,6 +44,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
             NPC.aiStyle = -1;
             NPC.boss = true;
             NPC.noGravity = true;
+            NPC.BossBar = ModContent.GetInstance<BfdtchsBossBar>();
             NPC.noTileCollide = true;
             NPC.SpawnWithHigherTime(10);
             NPC.npcSlots = 10f;
