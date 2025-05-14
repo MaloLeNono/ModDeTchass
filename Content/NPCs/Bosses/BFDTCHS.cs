@@ -159,11 +159,8 @@ namespace ModDeTchass.Content.NPCs.Bosses
                 {
                     Projectile.NewProjectile(source, NPC.Center, direction, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
                 }
-            }
-
-            if (Main.netMode != NetmodeID.MultiplayerClient && phase2)
-            {
-                if (Main.rand.NextBool(projectileChance))
+                
+                if (Main.rand.NextBool(projectileChance) && phase2)
                 {
                     Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
                 }

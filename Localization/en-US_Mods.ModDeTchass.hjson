@@ -201,6 +201,8 @@ Projectiles: {
 NPCs: {
 	BossDeTchass.DisplayName: Boss De Tchass
 	BFDTCHS.DisplayName: B.F.D.T.C.H.S
+	Bonheur.DisplayName: Bonheur
+	Malheur.DisplayName: Malheur
 }
 
 Buffs: {
