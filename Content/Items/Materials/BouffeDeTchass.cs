@@ -1,7 +1,4 @@
-﻿using ModDeTchass.Common.Systems;
-using ModDeTchass.Content.NPCs.Bosses;
-using Terraria;
-using Terraria.Audio;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

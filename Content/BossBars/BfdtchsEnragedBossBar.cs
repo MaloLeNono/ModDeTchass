@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.UI.BigProgressBar;
-using Terraria.GameContent;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.UI.BigProgressBar;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.BossBars

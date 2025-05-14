@@ -1,6 +1,5 @@
 ﻿using ModDeTchass.Content.Items.Materials;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 

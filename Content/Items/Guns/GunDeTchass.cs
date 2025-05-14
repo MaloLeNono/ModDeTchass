@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
