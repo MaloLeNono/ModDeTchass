@@ -1,4 +1,8 @@
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ModDeTchass
@@ -14,7 +18,7 @@ namespace ModDeTchass
         public static SoundStyle GlennQuagmire;
         public static SoundStyle OursinEi;
         public static SoundStyle Beuh;
-
+        
         public override void Load()
         {
             LudoLaugh = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/LetsGo")
@@ -67,12 +71,17 @@ namespace ModDeTchass
             {
                 Volume = 2f
             };
-
-            /*Main.instance.LoadNPC(NPCID.Guide);
-            TextureAssets.Npc[NPCID.Guide] = ModContent.Request<Texture2D>
-                ("ModDeTchass/Content/Textures/Guide_Default");
+            
+            /*TextureAssets.Npc[NPCID.Guide] = ModContent.Request<Texture2D>
+                ("ModDeTchass/Content/Textures/Guide_Default");*/
             TextureAssets.NpcHead[NPCHeadID.Guide] = ModContent.Request<Texture2D>
-                ("ModDeTchass/Content/Textures/NPC_Head_1");*/
+                ("ModDeTchass/Content/Textures/NPC_Head_1");
+        }
+
+        public override void Unload()
+        {
+            TextureAssets.NpcHead[NPCHeadID.Guide] = ModContent.Request<Texture2D>
+                ($"Terraria/Images/NPC_Head_1");
         }
     }
 }
