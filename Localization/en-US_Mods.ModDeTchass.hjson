@@ -185,6 +185,16 @@ Items: {
 		DisplayName: Prime
 		Tooltip: ""
 	}
+
+	ÉpéeGrosse: {
+		DisplayName: Épée Vraiment Très Très Grosse
+		Tooltip: ""
+	}
+
+	ÉpéePetite: {
+		DisplayName: Épée Vraiment Très Très Petite
+		Tooltip: ELLE EST TELLEMENT PETIIIITE
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -203,6 +213,7 @@ NPCs: {
 	BFDTCHS.DisplayName: B.F.D.T.C.H.S
 	Bonheur.DisplayName: Bonheur
 	Malheur.DisplayName: Malheur
+	Neutre.DisplayName: Neutre
 }
 
 Buffs: {
