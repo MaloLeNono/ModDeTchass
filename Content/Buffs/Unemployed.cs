@@ -3,36 +3,35 @@ using Terraria.ModLoader;
 
 namespace ModDeTchass.Content.Buffs;
 
-public class Employed : ModBuff
+public class Unemployed : ModBuff
 {
     public override void SetStaticDefaults()
     {
         Main.buffNoSave[Type] = false;
-        Main.buffNoTimeDisplay[Type] = true;
     }
 
     public override void Update(Player player, ref int buffIndex)
     {
-        player.GetModPlayer<EmployedPlayer>().isEmployed = true;
-        player.moveSpeed += 0.85f;
+        player.GetModPlayer<UnemployedPlayer>().isUnemployed = true;
+        player.moveSpeed -= 0.85f;
     }
 }
 
-class EmployedPlayer : ModPlayer
+class UnemployedPlayer : ModPlayer
 {
-    public bool isEmployed;
+    public bool isUnemployed;
 
     public override void ResetEffects()
     {
-        isEmployed = false;
+        isUnemployed = false;
     }
-
+    
     public override void PostUpdateRunSpeeds()
     {
-        if (isEmployed)
+        if (isUnemployed)
         {
-            Player.maxRunSpeed += 2f;
-            Player.accRunSpeed += 2.5f;
+            Player.maxRunSpeed -= 2f;
+            Player.accRunSpeed -= 2.5f;
         }
     }
 }

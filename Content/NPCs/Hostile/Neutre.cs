@@ -1,3 +1,4 @@
+using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -38,5 +39,14 @@ public class Neutre : ModNPC
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
         return SpawnCondition.OverworldNightMonster.Chance * 0.005f;
+    }
+
+    public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        if (target.HasBuff<Employed>())
+        {
+            target.ClearBuff(ModContent.BuffType<Employed>());;
+            target.AddBuff(ModContent.BuffType<Unemployed>(), 72000);
+        }
     }
 }

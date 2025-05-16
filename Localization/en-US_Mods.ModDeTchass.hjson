@@ -256,4 +256,9 @@ Buffs: {
 		DisplayName: Employed
 		Description: Tu as enfin trouvé un travail!
 	}
+
+	Unemployed: {
+		DisplayName: Unemployed
+		Description: Le Neutre était ton boss et il t'a congédié
+	}
 }
