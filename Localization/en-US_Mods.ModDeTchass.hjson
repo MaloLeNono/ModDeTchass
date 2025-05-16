@@ -195,6 +195,16 @@ Items: {
 		DisplayName: Épée Vraiment Très Très Petite
 		Tooltip: ELLE EST TELLEMENT PETIIIITE
 	}
+
+	BriqueDeTchass: {
+		DisplayName: Brique De Tchass
+		Tooltip: Meilleur block pour les maisons
+	}
+
+	MurDeTchass: {
+		DisplayName: Mur De Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass

@@ -29,11 +29,8 @@ namespace ModDeTchass.Content.Items.Consumables
             Item.consumable = true;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.buyPrice(gold: 2);
-        }
-
-        public override bool? UseItem(Player player)
-        {
-            return true;
+            Item.buffType = BuffID.NightOwl;
+            Item.buffTime = 72000;
         }
     }
 }

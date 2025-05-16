@@ -81,7 +81,7 @@ namespace ModDeTchass
         public override void Unload()
         {
             TextureAssets.NpcHead[NPCHeadID.Guide] = ModContent.Request<Texture2D>
-                ($"Terraria/Images/NPC_Head_1");
+                ("Terraria/Images/NPC_Head_1");
         }
     }
 }

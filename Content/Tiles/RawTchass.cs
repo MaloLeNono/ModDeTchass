@@ -25,10 +25,9 @@ namespace ModDeTchass.Content.Tiles
 
             LocalizedText name = CreateMapEntryName();
             AddMapEntry(new Color(255, 148, 33), name);
-
-            DustType = 84;
+            
             HitSound = SoundID.Tink;
-            MineResist = 4f;
+            MineResist = 1.5f;
             MinPick = 40;
         }
     }
