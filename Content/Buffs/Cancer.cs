@@ -44,25 +44,16 @@ class CancerPatient : ModPlayer
 
     public override void PostUpdate()
     {
-<<<<<<< HEAD
         if (hasCancer)
             Player.statDefense -= 20;
-=======
-        Player.statDefense -= 20;
->>>>>>> c45d5d5139c783b1a24dfa2135dd9941d898a68c
     }
 
     public override void PostUpdateRunSpeeds()
     {
-<<<<<<< HEAD
         if (hasCancer)
         {
             Player.maxRunSpeed -= 0.5f;
             Player.accRunSpeed -= 0.10f;
         }
-=======
-        Player.maxRunSpeed -= 0.5f;
-        Player.accRunSpeed -= 0.10f;
->>>>>>> c45d5d5139c783b1a24dfa2135dd9941d898a68c
     }
 }
