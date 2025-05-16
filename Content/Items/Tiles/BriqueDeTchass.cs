@@ -30,5 +30,9 @@ public class BriqueDeTchass : ModItem
             .AddIngredient<MurDeTchass>(4)
             .AddTile(TileID.WorkBenches)
             .Register();
+
+        CreateRecipe()
+            .AddIngredient<PlateformeDeTchass>(2)
+            .Register();
     }
 }

@@ -205,6 +205,11 @@ Items: {
 		DisplayName: Mur De Tchass
 		Tooltip: ""
 	}
+
+	PlateformeDeTchass: {
+		DisplayName: Plateforme De Tchass
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
