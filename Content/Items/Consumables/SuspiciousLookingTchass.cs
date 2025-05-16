@@ -5,61 +5,60 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModDeTchass.Content.Items.Consumables
+namespace ModDeTchass.Content.Items.Consumables;
+
+class SuspiciousLookingTchass : ModItem
 {
-    class SuspiciousLookingTchass : ModItem
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
-        }
+        ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+    }
 
-        public override void SetDefaults()
-        {
-            Item.width = 30;
-            Item.height = 30;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.value = Item.buyPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Blue;
-            Item.useAnimation = 30;
-            Item.useTime = 30;
-            Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.consumable = true;
-        }
+    public override void SetDefaults()
+    {
+        Item.width = 30;
+        Item.height = 30;
+        Item.maxStack = Item.CommonMaxStack;
+        Item.value = Item.buyPrice(gold: 1, silver: 50);
+        Item.rare = ItemRarityID.Blue;
+        Item.useAnimation = 30;
+        Item.useTime = 30;
+        Item.useStyle = ItemUseStyleID.HoldUp;
+        Item.consumable = true;
+    }
 
-        public override bool CanUseItem(Player player)
-        {
-            return !NPC.AnyNPCs(ModContent.NPCType<BossDeTchass>());
-        }
+    public override bool CanUseItem(Player player)
+    {
+        return !NPC.AnyNPCs(ModContent.NPCType<BossDeTchass>());
+    }
 
-        public override bool? UseItem(Player player)
+    public override bool? UseItem(Player player)
+    {
+        if (player.whoAmI == Main.myPlayer)
         {
-            if (player.whoAmI == Main.myPlayer)
+            SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
+
+            int type = ModContent.NPCType<BossDeTchass>();
+
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
-
-                int type = ModContent.NPCType<BossDeTchass>();
-
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    NPC.SpawnOnPlayer(player.whoAmI, type);
-                }
-                else
-                {
-                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
-                }
+                NPC.SpawnOnPlayer(player.whoAmI, type);
             }
-
-            return true;
+            else
+            {
+                NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
+            }
         }
 
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddIngredient<BouffeDeTchass>(15)
-                .AddIngredient<RepasDeTchass>()
-                .AddTile(TileID.DemonAltar)
-                .Register();
-        }
+        return true;
+    }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe()
+            .AddIngredient<BouffeDeTchass>(15)
+            .AddIngredient<RepasDeTchass>()
+            .AddTile(TileID.DemonAltar)
+            .Register();
     }
 }

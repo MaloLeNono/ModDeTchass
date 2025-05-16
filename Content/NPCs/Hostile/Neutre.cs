@@ -48,5 +48,8 @@ public class Neutre : ModNPC
             target.ClearBuff(ModContent.BuffType<Employed>());;
             target.AddBuff(ModContent.BuffType<Unemployed>(), 72000);
         }
+        
+        if (Main.rand.NextBool(4)) 
+            target.AddBuff(ModContent.BuffType<Baladie>(), 36000);
     }
 }

@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Items.Materials;
+﻿using ModDeTchass.Content.Buffs;
+using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -38,5 +39,11 @@ public class Malheur : ModNPC
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
         return SpawnCondition.OverworldNightMonster.Chance * 0.8f;
+    }
+    
+    public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        if (Main.rand.NextBool(4)) 
+            target.AddBuff(ModContent.BuffType<Baladie>(), 36000);
     }
 }

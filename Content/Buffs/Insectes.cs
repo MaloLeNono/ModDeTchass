@@ -2,43 +2,42 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModDeTchass.Content.Buffs
-{
-    class Insectes : ModBuff
-    {
-        public override void SetStaticDefaults()
-        {
-            Main.debuff[Type] = true;
-            Main.buffNoSave[Type] = false;
-            Main.buffNoTimeDisplay[Type] = true;
-            BuffID.Sets.LongerExpertDebuff[Type] = true;
-        }
+namespace ModDeTchass.Content.Buffs;
 
-        public override void Update(Player player, ref int buffIndex)
-        {
-            player.GetModPlayer<InsectsPlayer>().insectsDebuff = true;
-        }
+class Insectes : ModBuff
+{
+    public override void SetStaticDefaults()
+    {
+        Main.debuff[Type] = true;
+        Main.buffNoSave[Type] = false;
+        Main.buffNoTimeDisplay[Type] = true;
+        BuffID.Sets.LongerExpertDebuff[Type] = true;
     }
 
-    class InsectsPlayer : ModPlayer
+    public override void Update(Player player, ref int buffIndex)
     {
-        public bool insectsDebuff;
+        player.GetModPlayer<InsectsPlayer>().insectsDebuff = true;
+    }
+}
 
-        public override void ResetEffects()
+class InsectsPlayer : ModPlayer
+{
+    public bool insectsDebuff;
+
+    public override void ResetEffects()
+    {
+        insectsDebuff = false;
+    }
+
+    public override void UpdateBadLifeRegen()
+    {
+        if (insectsDebuff)
         {
-            insectsDebuff = false;
-        }
+            if (Player.lifeRegen > 0)
+                Player.lifeRegen = 0;
 
-        public override void UpdateBadLifeRegen()
-        {
-            if (insectsDebuff)
-            {
-                if (Player.lifeRegen > 0)
-                    Player.lifeRegen = 0;
-
-                Player.lifeRegenTime = 0;
-                Player.lifeRegen -= 20;
-            }
+            Player.lifeRegenTime = 0;
+            Player.lifeRegen -= 20;
         }
     }
 }

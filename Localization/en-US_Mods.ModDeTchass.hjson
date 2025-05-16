@@ -261,4 +261,9 @@ Buffs: {
 		DisplayName: Unemployed
 		Description: Le Neutre était ton boss et il t'a congédié
 	}
+
+	Baladie: {
+		DisplayName: Baladie
+		Description: La baladie de Justin a contaminé ses créations
+	}
 }

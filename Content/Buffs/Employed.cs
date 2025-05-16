@@ -13,12 +13,12 @@ public class Employed : ModBuff
 
     public override void Update(Player player, ref int buffIndex)
     {
-        player.GetModPlayer<EmployedPlayer>().isEmployed = true;
+        player.GetModPlayer<Employee>().isEmployed = true;
         player.moveSpeed += 0.85f;
     }
 }
 
-class EmployedPlayer : ModPlayer
+class Employee : ModPlayer
 {
     public bool isEmployed;
 

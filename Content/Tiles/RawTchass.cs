@@ -7,68 +7,67 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace ModDeTchass.Content.Tiles
+namespace ModDeTchass.Content.Tiles;
+
+public class RawTchass : ModTile
 {
-    public class RawTchass : ModTile
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            TileID.Sets.Ore[Type] = true;
-            TileID.Sets.FriendlyFairyCanLureTo[Type] = true;
-            Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 525;
-            Main.tileShine2[Type] = true;
-            Main.tileShine[Type] = 1000;
-            Main.tileMergeDirt[Type] = true;
-            Main.tileSolid[Type] = true;
-            Main.tileBlockLight[Type] = true;
+        TileID.Sets.Ore[Type] = true;
+        TileID.Sets.FriendlyFairyCanLureTo[Type] = true;
+        Main.tileSpelunker[Type] = true;
+        Main.tileOreFinderPriority[Type] = 525;
+        Main.tileShine2[Type] = true;
+        Main.tileShine[Type] = 1000;
+        Main.tileMergeDirt[Type] = true;
+        Main.tileSolid[Type] = true;
+        Main.tileBlockLight[Type] = true;
 
-            LocalizedText name = CreateMapEntryName();
-            AddMapEntry(new Color(255, 148, 33), name);
+        LocalizedText name = CreateMapEntryName();
+        AddMapEntry(new Color(255, 148, 33), name);
             
-            HitSound = SoundID.Tink;
-            MineResist = 1.5f;
-            MinPick = 40;
-        }
+        HitSound = SoundID.Tink;
+        MineResist = 1.5f;
+        MinPick = 40;
+    }
+}
+
+public class RawTchassSystem : ModSystem
+{
+    public static LocalizedText RawTchassPassMessage { get; private set; }
+
+    public override void SetStaticDefaults()
+    {
+        RawTchassPassMessage = Mod.GetLocalization($"WorldGen.{nameof(RawTchassPassMessage)}");
     }
 
-    public class RawTchassSystem : ModSystem
+    public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        public static LocalizedText RawTchassPassMessage { get; private set; }
+        int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 
-        public override void SetStaticDefaults()
+        if (ShiniesIndex != -1)
         {
-            RawTchassPassMessage = Mod.GetLocalization($"WorldGen.{nameof(RawTchassPassMessage)}");
-        }
-
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
-        {
-            int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
-
-            if (ShiniesIndex != -1)
-            {
-                tasks.Insert(ShiniesIndex + 1, new RawTchassPass("Tchass Mod Ores", 237.4298f));
-            }
+            tasks.Insert(ShiniesIndex + 1, new RawTchassPass("Tchass Mod Ores", 237.4298f));
         }
     }
+}
 
-    public class RawTchassPass : GenPass
+public class RawTchassPass : GenPass
+{
+    public RawTchassPass(string name, float loadWeight) : base(name, loadWeight)
     {
-        public RawTchassPass(string name, float loadWeight) : base(name, loadWeight)
+    }
+
+    protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
+    {
+        progress.Message = RawTchassSystem.RawTchassPassMessage.Value;
+
+        for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 1.2E-04); k++)
         {
-        }
+            int x = WorldGen.genRand.Next(0, Main.maxTilesX);
+            int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
 
-        protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
-        {
-            progress.Message = RawTchassSystem.RawTchassPassMessage.Value;
-
-            for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 1.2E-04); k++)
-            {
-                int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-                int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
-
-                WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 12), WorldGen.genRand.Next(2, 6), ModContent.TileType<RawTchass>());
-            }
+            WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 12), WorldGen.genRand.Next(2, 6), ModContent.TileType<RawTchass>());
         }
     }
 }

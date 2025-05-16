@@ -12,12 +12,12 @@ public class Unemployed : ModBuff
 
     public override void Update(Player player, ref int buffIndex)
     {
-        player.GetModPlayer<UnemployedPlayer>().isUnemployed = true;
+        player.GetModPlayer<Bum>().isUnemployed = true;
         player.moveSpeed -= 0.85f;
     }
 }
 
-class UnemployedPlayer : ModPlayer
+class Bum : ModPlayer
 {
     public bool isUnemployed;
 
