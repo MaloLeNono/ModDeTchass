@@ -210,6 +210,11 @@ Items: {
 		DisplayName: Plateforme De Tchass
 		Tooltip: ""
 	}
+
+	JobApplication: {
+		DisplayName: Job Application
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -245,5 +250,10 @@ Buffs: {
 	Cancer: {
 		DisplayName: Cancer
 		Description: Ton cancer dormant s'est réveillé quand tu as bu le Prime
+	}
+
+	Employed: {
+		DisplayName: Employed
+		Description: Tu as enfin trouvé un travail!
 	}
 }

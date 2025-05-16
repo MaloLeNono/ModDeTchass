@@ -175,7 +175,7 @@ namespace ModDeTchass.Content.NPCs.Bosses
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SuperTchass>(), 1, 20, 30));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<M61Vulcan>(), 1, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<M61Vulcan>()));
             npcLoot.Add(ItemDropRule.Common(ItemID.PlatinumCoin, 1, 5, 10));
         }
     }
