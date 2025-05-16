@@ -19,7 +19,6 @@ class Autism : ModBuff
         player.GetModPlayer<AutismPlayer>().hasAutism = true;
         player.moveSpeed -= 0.85f;
         player.maxMinions = 1;
-        player.statDefense -= 50;
         player.AddBuff(BuffID.Confused, 99999999);
     }
 }
@@ -36,12 +35,21 @@ class AutismPlayer : ModPlayer
     public override void PostUpdateRunSpeeds()
     {
         if (hasAutism)
+        {
             Player.maxRunSpeed -= 2f;
+            Player.accRunSpeed -= 2.5f;
+        }
     }
 
     public override void UpdateBadLifeRegen()
     {
         if (hasAutism)
             Player.lifeRegen = 0;
+    }
+
+    public override void PostUpdate()
+    {
+        if (hasAutism)
+            Player.statDefense -= 50;
     }
 }

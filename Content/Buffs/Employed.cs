@@ -31,6 +31,9 @@ class EmployedPlayer : ModPlayer
     public override void PostUpdateRunSpeeds()
     {
         if (isEmployed)
+        {
             Player.maxRunSpeed += 2f;
+            Player.accRunSpeed += 2.5f;
+        }
     }
 }
