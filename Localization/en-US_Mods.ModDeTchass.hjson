@@ -266,19 +266,20 @@ NPCs: {
 		DisplayName: Gurt
 
 		TownNPCMood: {
-			Content: ts is Owen
-			NoHome: not having a home pmo
-			FarFromHome: ts pmo
-			LoveSpace: ts space is NOT kevin
-			DislikeCrowded: ts crowd is kevin
+			Content: ts owen
+			NoHome: no house is kevin
+			FarFromHome: far away from home is kevin
+			LoveSpace: ts space is owen
+			DislikeCrowded: ts crowd kevin
 			HateCrowded: ts crowd blerk kevin
-			LikeBiome: {BiomeName} is tuff
-			DislikeBiome: {BiomeName} is kevin
+			LikeBiome: brochacho {BiomeName} tuff
+			DislikeBiome: ts {BiomeName} kevin
 			LoveNPC: i goon to {NPCName}
-			LikeNPC: {NPCName} is tuff
-			DislikeNPC: {NPCName} pmo
-			LikeNPC_Princess: {NPCName} kinda
-			Princess_LovesNPC: i goon to {NPCName} fr
+			LikeNPC: ts {NPCName} tuff
+			DislikeNPC: ts {NPCName} kevin
+			LikeNPC_Princess: ts {NPCName} kinda
+			Princess_LovesNPC: ts {NPCName} owen
+			HateNPC: ts {NPCName} blerk kevin
 		}
 	}
 }

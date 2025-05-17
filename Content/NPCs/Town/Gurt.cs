@@ -1,20 +1,12 @@
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Consumables;
-using ModDeTchass.Content.NPCs.Bosses;
-using ModDeTchass.Content.Tiles;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 
 namespace ModDeTchass.Content.NPCs.Town;
