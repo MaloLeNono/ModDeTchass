@@ -1,4 +1,4 @@
-﻿using ModDeTchass.Content.Buffs;
+using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -6,9 +6,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModDeTchass.Content.NPCs.Hostile;
+namespace ModDeTchass.Content.NPCs.Hostile.Hardmode;
 
-public class Bonheur : ModNPC
+public class Bonneheure : ModNPC
 {
     public override void SetStaticDefaults()
     {
@@ -17,35 +17,35 @@ public class Bonheur : ModNPC
 
     public override void SetDefaults()
     {
-        NPC.width = 18;
-        NPC.height = 40;
-        NPC.damage = 10;
-        NPC.defense = 6;
-        NPC.lifeMax = 75;
+        NPC.width = 36;
+        NPC.height = 80;
+        NPC.damage = 50;
+        NPC.defense = 9;
+        NPC.lifeMax = 190;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = ModDeTchass.LudoEi;
-        NPC.value = Item.buyPrice(silver: 2);
-        NPC.knockBackResist = 0.5f;
+        NPC.value = Item.buyPrice(silver: 20);
+        NPC.knockBackResist = 1.2f;
         NPC.aiStyle = 3;
         AnimationType = NPCID.Zombie;
     }
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Microplastics>(), 1, 10, 15));
-        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RawTchass>(), 4, 2, 10));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Microplastics>(), 1, 20, 32));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BouffeDeTchass>(), 5, 1, 12));
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
-        if (!Condition.Hardmode.IsMet())
-            return SpawnCondition.OverworldNightMonster.Chance * 0.8f;
+        if (Condition.Hardmode.IsMet())
+            return SpawnCondition.OverworldNightMonster.Chance * 0.3f;
         return 0;
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
     {
-        if (Main.rand.NextBool(4)) 
-            target.AddBuff(ModContent.BuffType<Baladie>(), 36000);
+        if (Main.rand.NextBool(2))
+            target.AddBuff(ModContent.BuffType<Baladie>(), 72000);
     }
 }

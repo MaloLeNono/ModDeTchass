@@ -27,7 +27,7 @@ public class Gurt : ModNPC
     public override void SetStaticDefaults()
     {
         NPCID.Sets.DangerDetectRange[Type] = 500;
-        NPCID.Sets.AttackType[Type] = 0;
+        NPCID.Sets.AttackType[Type] = -1;
         NPCID.Sets.AttackTime[Type] = 90;
         NPCID.Sets.AttackAverageChance[Type] = 50;
         NPCID.Sets.HatOffsetY[Type] = 4;
@@ -148,29 +148,5 @@ public class Gurt : ModNPC
             packet.Write((byte)NPC.whoAmI);
             packet.Send();
         }
-    }
-
-    public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-    {
-        damage = 1;
-        knockback = 1f;
-    }
-
-    public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-    {
-        cooldown = 30;
-        randExtraCooldown = 50;
-    }
-
-    public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
-    {
-        projType = ProjectileID.BallOHurt;
-        attackDelay = 1;
-    }
-
-    public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
-    {
-        multiplier = 1f;
-        randomOffset = 1f;
     }
 }

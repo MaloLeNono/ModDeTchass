@@ -29,7 +29,7 @@ class BfdtchsBossBar : ModBossBar
 
         bossHeadIndex = npc.GetBossHeadTextureIndex();
 
-        life = npc.life;
+        life = npc.lifeMax;
         lifeMax = npc.lifeMax;
 
         shield = 0;

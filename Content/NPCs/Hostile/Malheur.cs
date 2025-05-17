@@ -38,7 +38,9 @@ public class Malheur : ModNPC
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
-        return SpawnCondition.OverworldNightMonster.Chance * 0.8f;
+        if (!Condition.Hardmode.IsMet())
+            return SpawnCondition.OverworldNightMonster.Chance * 0.8f;
+        return 0;
     }
     
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

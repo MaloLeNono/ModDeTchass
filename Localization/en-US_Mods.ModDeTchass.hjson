@@ -282,6 +282,9 @@ NPCs: {
 			HateNPC: ts {NPCName} blerk kevin
 		}
 	}
+
+	Bonneheure.DisplayName: Bonneheure
+	Malleheure.DisplayName: Malleheure
 }
 
 Buffs: {
