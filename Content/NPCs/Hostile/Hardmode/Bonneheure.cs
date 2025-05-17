@@ -17,6 +17,7 @@ public class Bonneheure : ModNPC
 
     public override void SetDefaults()
     {
+        NPC.netAlways = true;
         NPC.width = 36;
         NPC.height = 80;
         NPC.damage = 50;

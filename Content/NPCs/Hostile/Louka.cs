@@ -11,6 +11,7 @@ public class Louka : ModNPC
 {
     public override void SetDefaults()
     {
+        NPC.netAlways = true;
         NPC.width = 260;
         NPC.height = 130;
         NPC.damage = 20;

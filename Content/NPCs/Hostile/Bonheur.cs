@@ -17,6 +17,7 @@ public class Bonheur : ModNPC
 
     public override void SetDefaults()
     {
+        NPC.netAlways = true;
         NPC.width = 18;
         NPC.height = 40;
         NPC.damage = 10;
