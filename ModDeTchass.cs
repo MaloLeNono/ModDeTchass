@@ -78,9 +78,7 @@ public class ModDeTchass : Mod
             Volume = 1.5f,
             PitchVariance = 0.2f
         };
-            
-        /*TextureAssets.Npc[NPCID.Guide] = ModContent.Request<Texture2D>
-            ("ModDeTchass/Content/Textures/Guide_Default");*/
+        
         TextureAssets.NpcHead[NPCHeadID.Guide] = ModContent.Request<Texture2D>
             ("ModDeTchass/Content/Textures/NPC_Head_1");
     }
