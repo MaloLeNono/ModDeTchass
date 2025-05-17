@@ -43,7 +43,7 @@ class M61Vulcan : ModItem
     }
 }
 
-class MyModPlayer : ModPlayer
+class F16FighterJet : ModPlayer
 {
     public bool wasFiring;
 

@@ -261,6 +261,26 @@ NPCs: {
 	Malheur.DisplayName: Malheur
 	Neutre.DisplayName: Neutre
 	Louka.DisplayName: Louka
+
+	Gurt: {
+		DisplayName: Gurt
+
+		TownNPCMood: {
+			Content: ts is Owen
+			NoHome: not having a home pmo
+			FarFromHome: ts pmo
+			LoveSpace: ts space is NOT kevin
+			DislikeCrowded: ts crowd is kevin
+			HateCrowded: ts crowd blerk kevin
+			LikeBiome: {BiomeName} is tuff
+			DislikeBiome: {BiomeName} is kevin
+			LoveNPC: i goon to {NPCName}
+			LikeNPC: {NPCName} is tuff
+			DislikeNPC: {NPCName} pmo
+			LikeNPC_Princess: {NPCName} kinda
+			Princess_LovesNPC: i goon to {NPCName} fr
+		}
+	}
 }
 
 Buffs: {
