@@ -18,6 +18,7 @@ public class ModDeTchass : Mod
     public static SoundStyle GlennQuagmire;
     public static SoundStyle OursinEi;
     public static SoundStyle Beuh;
+    public static SoundStyle Ai;
         
     public override void Load()
     {
@@ -70,6 +71,12 @@ public class ModDeTchass : Mod
         Beuh = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/Beuh")
         {
             Volume = 2f
+        };
+
+        Ai = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/Ai")
+        {
+            Volume = 1.5f,
+            PitchVariance = 0.2f
         };
             
         /*TextureAssets.Npc[NPCID.Guide] = ModContent.Request<Texture2D>

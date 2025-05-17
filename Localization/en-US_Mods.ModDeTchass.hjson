@@ -215,6 +215,31 @@ Items: {
 		DisplayName: Job Application
 		Tooltip: ""
 	}
+
+	AlienTchass: {
+		DisplayName: Alien Tchass
+		Tooltip: Aae aeae aea aeaia
+	}
+
+	ZipGlorpVorp: {
+		DisplayName: Zip Glorp Vorp
+		Tooltip: Aaie aeiaeia eia ei
+	}
+
+	VlorbGlipZip: {
+		DisplayName: Vlorb Glip Zip
+		Tooltip: Aieaie e aiea eie
+	}
+
+	GlorpizBlorb: {
+		DisplayName: Glorpiz Blorb
+		Tooltip: Eieai aieai ae
+	}
+
+	VorpGorpBlorpLorp: {
+		DisplayName: Vorp Gorp Blorp Lorp
+		Tooltip: Aeae ae ae aeiae
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -226,6 +251,7 @@ Projectiles: {
 	_20mmBullet.DisplayName: 20mm Bullet
 	TerraTchassProjectile.DisplayName: Terra Tchass Projectile
 	NoHomingTchassProjectile.DisplayName: No Homing Tchass Projectile
+	AlienProjectile.DisplayName: Alien Projectile
 }
 
 NPCs: {
@@ -234,6 +260,7 @@ NPCs: {
 	Bonheur.DisplayName: Bonheur
 	Malheur.DisplayName: Malheur
 	Neutre.DisplayName: Neutre
+	Louka.DisplayName: Louka
 }
 
 Buffs: {
