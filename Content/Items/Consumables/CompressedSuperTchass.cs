@@ -12,8 +12,8 @@ class CompressedSuperTchass : ModItem
 {
     public override void SetDefaults()
     {
-        Item.width = 0;
-        Item.height = 0;
+        Item.width = 30;
+        Item.height = 30;
         Item.maxStack = Item.CommonMaxStack;
         Item.value = Item.buyPrice(gold: 60);
         Item.rare = ItemRarityID.Blue;

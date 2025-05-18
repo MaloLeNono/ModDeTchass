@@ -80,7 +80,6 @@ class BFDTCHS : ModNPC
 
         if (player.dead)
         {
-            NPC.noTileCollide = true;
             NPC.velocity = NPC.DirectionFrom(player.Center) * 50;
             NPC.EncourageDespawn(10);
             return;

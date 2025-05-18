@@ -1,5 +1,7 @@
 using ModDeTchass.Content.Buffs;
+using ModDeTchass.Content.NPCs.Bosses;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +23,27 @@ public class JobApplication : ModItem
         Item.rare = ItemRarityID.Expert;
         Item.UseSound = ModDeTchass.LudoDrogue;
         Item.maxStack = Item.CommonMaxStack;
-        Item.buffType = ModContent.BuffType<Employed>();
-        Item.buffTime = 99999999;
+    }
+
+    public override bool? UseItem(Player player)
+    {
+        if (player.HasBuff<Unemployed>() && player.whoAmI == Main.myPlayer)
+        {
+            SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
+
+            int type = ModContent.NPCType<UnemploymentFinalBoss>();
+
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                NPC.SpawnOnPlayer(player.whoAmI, type);
+            }
+            else
+            {
+                NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
+            }
+        }
+        
+        player.AddBuff(ModContent.BuffType<Employed>(), 99999999);
+        return true;
     }
 }
