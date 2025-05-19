@@ -240,6 +240,16 @@ Items: {
 		DisplayName: Vorp Gorp Blorp Lorp
 		Tooltip: Aeae ae ae aeiae
 	}
+
+	Gau8Avenger: {
+		DisplayName: Gau-8 Avenger
+		Tooltip: BBBBBBRRRRRRRRRRRTTTT
+	}
+
+	_30mmBullet: {
+		DisplayName: _30mm Bullet
+		Tooltip: ""
+	}
 }
 
 Tiles.RawTchass.MapEntry: Raw Tchass
@@ -252,6 +262,7 @@ Projectiles: {
 	TerraTchassProjectile.DisplayName: Terra Tchass Projectile
 	NoHomingTchassProjectile.DisplayName: No Homing Tchass Projectile
 	AlienProjectile.DisplayName: Alien Projectile
+	_30mmBullet.DisplayName: _30mm Bullet
 }
 
 NPCs: {

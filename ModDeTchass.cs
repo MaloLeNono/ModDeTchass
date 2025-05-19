@@ -19,6 +19,8 @@ public class ModDeTchass : Mod
     public static SoundStyle OursinEi;
     public static SoundStyle Beuh;
     public static SoundStyle Ai;
+    public static SoundStyle StrafeEndGau8;
+    public static SoundStyle Gau8Fire;
         
     public override void Load()
     {
@@ -76,6 +78,18 @@ public class ModDeTchass : Mod
         Ai = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Custom/Ai")
         {
             Volume = 1.5f,
+            PitchVariance = 0.2f
+        };
+
+        StrafeEndGau8 = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Guns/StrafeEndGau8")
+        {
+            Volume = 1.5f,
+            PitchVariance = 0.05f
+        };
+
+        Gau8Fire = new SoundStyle($"{nameof(ModDeTchass)}/Content/Sounds/Guns/Gau8Fire")
+        {
+            Volume = 5f,
             PitchVariance = 0.2f
         };
         
