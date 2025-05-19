@@ -41,6 +41,8 @@ public class JobApplication : ModItem
             {
                 NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
             }
+
+            return true;
         }
         
         player.AddBuff(ModContent.BuffType<Employed>(), 99999999);

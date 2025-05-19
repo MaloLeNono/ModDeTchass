@@ -5,6 +5,7 @@ using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
+using SDL2;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -72,7 +73,7 @@ class BFDTCHS : ModNPC
 
         if (phase2)
             projTimer++;
-
+        
         Player player = Main.player[NPC.target];
         float distance = NPC.Distance(player.Center);
         Vector2 direction = NPC.DirectionTo(player.Center);
@@ -113,9 +114,11 @@ class BFDTCHS : ModNPC
             for (int i = 0; i < 4; i++)
             {
                 Vector2 newDir = direction.RotatedBy(MathHelper.ToRadians(rotation));
-                Projectile.NewProjectile(source, NPC.Center, newDir * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
+                Projectile.NewProjectile(source, NPC.Center, newDir * speed * 1.2f,
+                    ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
                 rotation += 90;
             }
+
             projTimer = 0;
             rotation += 45;
         }
@@ -159,10 +162,21 @@ class BFDTCHS : ModNPC
             {
                 Projectile.NewProjectile(source, NPC.Center, direction, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
             }
-                
-            if (Main.rand.NextBool(projectileChance) && phase2)
+
+            if (!phase2)
+                return;
+            
+            if (Main.rand.NextBool(projectileChance))
             {
                 Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
+            }
+            
+            if (Main.rand.NextBool(20))
+            {
+                Projectile.NewProjectile(source, NPC.Bottom, direction * speed * 1.3f, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                Projectile.NewProjectile(source, NPC.Top, direction * speed * 1.3f, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                Projectile.NewProjectile(source, NPC.Left, direction * speed * 1.3f, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
+                Projectile.NewProjectile(source, NPC.Right, direction * speed * 1.3f, ModContent.ProjectileType<TchassProjectile>(), 300, 5);
             }
         }
     }
