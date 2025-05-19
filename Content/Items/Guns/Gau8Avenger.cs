@@ -28,6 +28,7 @@ public class Gau8Avenger : ModItem
         Item.noMelee = true;
         Item.useAmmo = AmmoID.Bullet;
         Item.useStyle = ItemUseStyleID.Shoot;
+        Item.channel = true;
     }
     
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -49,7 +50,7 @@ class A10AttackJet : ModPlayer
 
     public override void PostUpdate()
     {
-        bool isFiring = Player.controlUseItem && Player.HeldItem.type == ModContent.ItemType<Gau8Avenger>();
+        bool isFiring = Player.channel && Player.HeldItem.type == ModContent.ItemType<Gau8Avenger>();
 
         if (wasFiring && !isFiring)
         {
