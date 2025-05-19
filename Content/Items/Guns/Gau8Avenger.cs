@@ -42,6 +42,14 @@ public class Gau8Avenger : ModItem
     {
         return new Vector2(-1f, 12f);
     }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe()
+            .AddIngredient<M61Vulcan>(2)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
+    }
 }
 
 class A10AttackJet : ModPlayer

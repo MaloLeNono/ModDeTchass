@@ -4,6 +4,7 @@ using ModDeTchass.Content.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent.NetModules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
