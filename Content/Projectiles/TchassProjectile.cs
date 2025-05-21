@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.NPCs.Bosses;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -48,6 +49,10 @@ class TchassProjectile : ModProjectile
         Player player = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
 
         float speed = 7.5f;
+        
+        if (BFDTCHS.enraged)
+            speed = 15f;
+        
         Vector2 direction = player.Center - Projectile.Center;
         direction.Normalize();
         Projectile.velocity = direction * speed;

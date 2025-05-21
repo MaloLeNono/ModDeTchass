@@ -16,10 +16,10 @@ using Terraria.ModLoader;
 namespace ModDeTchass.Content.NPCs.Bosses;
 
 [AutoloadBossHead]
-class BFDTCHS : ModNPC
+public class BFDTCHS : ModNPC
 {
     bool phase2 = false;
-    bool enraged = false;
+    public static bool enraged = false;
     int projectileChance = 5;
     float speed = 7f;
     int timer;
