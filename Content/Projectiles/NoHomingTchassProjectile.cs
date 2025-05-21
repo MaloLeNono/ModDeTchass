@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ModDeTchass.Common.Systems;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -40,7 +41,7 @@ class NoHomingTchassProjectile : ModProjectile
     {
         if (!Main.dedServ && canPlaySound)
         {
-            SoundEngine.PlaySound(ModDeTchass.OursinEi, Projectile.position);
+            SoundEngine.PlaySound(Sounds.OursinEi, Projectile.position);
             canPlaySound = false;
         }
     }

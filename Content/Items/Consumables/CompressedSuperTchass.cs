@@ -32,7 +32,7 @@ class CompressedSuperTchass : ModItem
     {
         if (player.whoAmI == Main.myPlayer)
         {
-            SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
+            SoundEngine.PlaySound(Sounds.LudoLaugh);
 
             int type = ModContent.NPCType<BFDTCHS>();
 

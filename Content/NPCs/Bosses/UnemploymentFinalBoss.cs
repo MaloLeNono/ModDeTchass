@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using Steamworks;
 using Terraria;
 using Terraria.GameContent.Personalities;
@@ -25,7 +26,7 @@ public class UnemploymentFinalBoss : ModNPC
         NPC.defense = 999;
         NPC.lifeMax = 5000000;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.knockBackResist = 0;
         NPC.aiStyle = -1;
         NPC.boss = true;

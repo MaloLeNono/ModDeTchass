@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Items.Materials;
+﻿using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +14,7 @@ class GlennQuagmire : ModItem
         Item.height = 29;
         Item.value = Item.buyPrice(gold: 5);
         Item.consumable = true;
-        Item.UseSound = ModDeTchass.GlennQuagmire;
+        Item.UseSound = Sounds.GlennQuagmire;
         Item.maxStack = Item.CommonMaxStack;
         Item.useTurn = true;
         Item.rare = ItemRarityID.Blue;

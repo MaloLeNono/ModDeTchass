@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Buffs;
+﻿using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -24,7 +25,7 @@ public class Malheur : ModNPC
         NPC.defense = 6;
         NPC.lifeMax = 200;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.value = Item.buyPrice(silver: 2);
         NPC.knockBackResist = 0.5f;
         NPC.aiStyle = 3;

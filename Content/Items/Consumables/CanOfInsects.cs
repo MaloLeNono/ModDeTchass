@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Buffs;
+﻿using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -14,7 +15,7 @@ class CanOfInsects : ModItem
         Item.height = 36;
         Item.value = Item.buyPrice(silver: 2);
         Item.consumable = true;
-        Item.UseSound = ModDeTchass.OursinEi;
+        Item.UseSound = Sounds.OursinEi;
         Item.maxStack = Item.CommonMaxStack;
         Item.useTurn = true;
         Item.rare = ItemRarityID.Gray;

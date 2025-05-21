@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.Audio;
@@ -24,7 +25,7 @@ public class VlorbGlipZip : ModItem
         Item.knockBack = 4;
         Item.pick = 190;
         Item.rare = ItemRarityID.Green;
-        Item.UseSound = ModDeTchass.Ai;
+        Item.UseSound = Sounds.Ai;
     }
 
     public override void MeleeEffects(Player player, Rectangle hitbox)

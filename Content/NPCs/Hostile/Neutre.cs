@@ -1,3 +1,4 @@
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
@@ -24,7 +25,7 @@ public class Neutre : ModNPC
         NPC.defense = 6;
         NPC.lifeMax = 150;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.value = Item.buyPrice(silver: 10);
         NPC.knockBackResist = 0.5f;
         NPC.aiStyle = 3;

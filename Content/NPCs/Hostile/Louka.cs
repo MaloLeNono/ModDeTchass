@@ -1,3 +1,4 @@
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Consumables;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -18,7 +19,7 @@ public class Louka : ModNPC
         NPC.defense = 9;
         NPC.lifeMax = 200;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.value = Item.buyPrice(gold: 5);
         NPC.knockBackResist = 99f;
         NPC.aiStyle = 3;

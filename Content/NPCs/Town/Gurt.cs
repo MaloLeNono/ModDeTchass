@@ -59,8 +59,8 @@ public class Gurt : ModNPC
         NPC.damage = 1;
         NPC.defense = 1;
         NPC.lifeMax = 50;
-        NPC.HitSound = ModDeTchass.OursinEi;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.HitSound = Sounds.OursinEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.knockBackResist = 0.5f;
     }
 

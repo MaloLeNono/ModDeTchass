@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -23,7 +24,7 @@ public class Gau8Avenger : ModItem
         Item.useTime = 2;
         Item.useAnimation = 2;
         Item.autoReuse = true;
-        Item.UseSound = ModDeTchass.Gau8Fire;
+        Item.UseSound = Sounds.Gau8Fire;
         Item.knockBack = 0f;
         Item.noMelee = true;
         Item.useAmmo = AmmoID.Bullet;
@@ -63,7 +64,7 @@ class A10AttackJet : ModPlayer
         if (wasFiring && !isFiring)
         {
             if (!Main.dedServ)
-                SoundEngine.PlaySound(ModDeTchass.StrafeEndGau8, Player.position);
+                SoundEngine.PlaySound(Sounds.StrafeEndGau8, Player.position);
         }
 
         wasFiring = isFiring;

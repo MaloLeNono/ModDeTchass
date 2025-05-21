@@ -1,3 +1,4 @@
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.NPCs.Bosses;
 using Terraria;
@@ -21,7 +22,7 @@ public class JobApplication : ModItem
         Item.useAnimation = 15;
         Item.useTurn = true;
         Item.rare = ItemRarityID.Expert;
-        Item.UseSound = ModDeTchass.LudoDrogue;
+        Item.UseSound = Sounds.LudoDrogue;
         Item.maxStack = Item.CommonMaxStack;
     }
 
@@ -29,7 +30,7 @@ public class JobApplication : ModItem
     {
         if (player.HasBuff<Unemployed>() && player.whoAmI == Main.myPlayer)
         {
-            SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
+            SoundEngine.PlaySound(Sounds.LudoLaugh);
 
             int type = ModContent.NPCType<UnemploymentFinalBoss>();
 

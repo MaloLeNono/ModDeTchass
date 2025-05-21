@@ -25,8 +25,8 @@ class BossDeTchass : ModNPC
         NPC.damage = 9999;
         NPC.defense = 0;
         NPC.lifeMax = 600;
-        NPC.HitSound = ModDeTchass.PiedsOursin;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.HitSound = Sounds.PiedsOursin;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.knockBackResist = 0;
         NPC.aiStyle = -1;
         NPC.boss = true;

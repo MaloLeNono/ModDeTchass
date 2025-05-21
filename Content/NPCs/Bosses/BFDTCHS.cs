@@ -41,7 +41,7 @@ class BFDTCHS : ModNPC
         NPC.defense = 0;
         NPC.lifeMax = 500000;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.knockBackResist = 0;
         NPC.aiStyle = -1;
         NPC.boss = true;
@@ -96,7 +96,7 @@ class BFDTCHS : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         if (!Main.dedServ)
-            SoundEngine.PlaySound(ModDeTchass.PiedsOursin, NPC.position);
+            SoundEngine.PlaySound(Sounds.PiedsOursin, NPC.position);
 
         for (int i = 0; i < 4; i++)
         {
@@ -133,7 +133,7 @@ class BFDTCHS : ModNPC
             speed *= 1.2f;
             projectileChance = 2;
             if (!Main.dedServ)
-                SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
+                SoundEngine.PlaySound(Sounds.Beuh, NPC.position);
             phase2 = true;
         }
     }
@@ -146,7 +146,7 @@ class BFDTCHS : ModNPC
             speed = 12f;
             enraged = true;
             if (!Main.dedServ)
-                SoundEngine.PlaySound(ModDeTchass.Beuh, NPC.position);
+                SoundEngine.PlaySound(Sounds.Beuh, NPC.position);
         }
     }
 

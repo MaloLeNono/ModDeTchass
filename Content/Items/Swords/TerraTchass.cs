@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
 using Terraria;
@@ -38,7 +39,7 @@ class TerraTchass : ModItem
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
         if (!Main.dedServ)
-            SoundEngine.PlaySound(ModDeTchass.LudoDrogue);
+            SoundEngine.PlaySound(Sounds.LudoDrogue);
         return true;
     }
 

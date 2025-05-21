@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.Items.Materials;
+﻿using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.NPCs.Bosses;
 using Terraria;
 using Terraria.Audio;
@@ -36,7 +37,7 @@ class SuspiciousLookingTchass : ModItem
     {
         if (player.whoAmI == Main.myPlayer)
         {
-            SoundEngine.PlaySound(ModDeTchass.LudoLaugh);
+            SoundEngine.PlaySound(Sounds.LudoLaugh);
 
             int type = ModContent.NPCType<BossDeTchass>();
 

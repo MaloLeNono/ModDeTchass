@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -21,7 +22,7 @@ public class GlorpizBlorb : ModItem
         Item.knockBack = 7;
         Item.damage = 42;
         Item.DamageType = DamageClass.Melee;
-        Item.UseSound = ModDeTchass.Ai;
+        Item.UseSound = Sounds.Ai;
         Item.autoReuse = true;
         Item.useTurn = true;
     }

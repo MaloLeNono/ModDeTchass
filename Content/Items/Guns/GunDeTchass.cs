@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -21,7 +22,7 @@ class GunDeTchass : ModItem
         Item.useTime = 5;
         Item.useAnimation = 5;
         Item.autoReuse = true;
-        Item.UseSound = ModDeTchass.LudoEi;
+        Item.UseSound = Sounds.LudoEi;
         Item.knockBack = 0f;
         Item.noMelee = true;
         Item.useAmmo = AmmoID.Bullet;

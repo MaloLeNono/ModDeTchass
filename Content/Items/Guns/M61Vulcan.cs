@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -23,7 +24,7 @@ class M61Vulcan : ModItem
         Item.useTime = 2;
         Item.useAnimation = 2;
         Item.autoReuse = true;
-        Item.UseSound = ModDeTchass.M61Fire;
+        Item.UseSound = Sounds.M61Fire;
         Item.knockBack = 0f;
         Item.noMelee = true;
         Item.useAmmo = AmmoID.Bullet;
@@ -55,7 +56,7 @@ class F16FighterJet : ModPlayer
         if (wasFiring && !isFiring)
         {
             if (!Main.dedServ)
-                SoundEngine.PlaySound(ModDeTchass.StrafeEnd, Player.position);
+                SoundEngine.PlaySound(Sounds.StrafeEnd, Player.position);
         }
 
         wasFiring = isFiring;

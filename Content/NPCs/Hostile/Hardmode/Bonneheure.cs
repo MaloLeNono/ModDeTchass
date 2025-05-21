@@ -1,3 +1,4 @@
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Materials;
 using Terraria;
@@ -24,7 +25,7 @@ public class Bonneheure : ModNPC
         NPC.defense = 9;
         NPC.lifeMax = 190;
         NPC.HitSound = SoundID.NPCHit1;
-        NPC.DeathSound = ModDeTchass.LudoEi;
+        NPC.DeathSound = Sounds.LudoEi;
         NPC.value = Item.buyPrice(silver: 20);
         NPC.knockBackResist = 1.2f;
         NPC.aiStyle = 3;

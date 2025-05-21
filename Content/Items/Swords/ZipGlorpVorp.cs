@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
 using Terraria;
@@ -23,7 +24,7 @@ public class ZipGlorpVorp : ModItem
         Item.shoot = ModContent.ProjectileType<AlienProjectile>();
         Item.shootSpeed = 12f;
         Item.useAnimation = 18;
-        Item.UseSound = ModDeTchass.Ai;
+        Item.UseSound = Sounds.Ai;
         Item.rare = ItemRarityID.Green;
         Item.DamageType = DamageClass.Melee;
         Item.autoReuse = true;
