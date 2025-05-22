@@ -19,7 +19,7 @@ namespace ModDeTchass.Content.NPCs.Bosses;
 public class BFDTCHS : ModNPC
 {
     bool phase2 = false;
-    public static bool enraged = false;
+    public static bool Enraged = false;
     int projectileChance = 5;
     float speed = 7f;
     int timer;
@@ -58,7 +58,7 @@ public class BFDTCHS : ModNPC
 
     public override Color? GetAlpha(Color drawColor)
     {
-        return phase2 || enraged ? Color.Red : Color.White;
+        return phase2 || Enraged ? Color.Red : Color.White;
     }
 
         
@@ -75,7 +75,6 @@ public class BFDTCHS : ModNPC
             projTimer++;
         
         Player player = Main.player[NPC.target];
-        float distance = NPC.Distance(player.Center);
         Vector2 direction = NPC.DirectionTo(player.Center);
         NPC.velocity = direction * speed;
 
@@ -86,7 +85,7 @@ public class BFDTCHS : ModNPC
             return;
         }
 
-        CheckEnraged(distance);
+        CheckEnraged(player);
 
         CheckSecondPhase();
 
@@ -138,13 +137,14 @@ public class BFDTCHS : ModNPC
         }
     }
 
-    private void CheckEnraged(float distance)
+    private void CheckEnraged(Player player)
     {
-        if (distance > 1500 && timer >= 300)
+        float distance = NPC.Distance(player.Center);
+        if (distance > 1500 && timer >= 300 && !Enraged)
         {
             NPC.BossBar = ModContent.GetInstance<BfdtchsEnragedBossBar>();
             speed = 12f;
-            enraged = true;
+            Enraged = true;
             if (!Main.dedServ)
                 SoundEngine.PlaySound(Sounds.Beuh, NPC.position);
         }

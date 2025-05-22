@@ -50,7 +50,7 @@ class TchassProjectile : ModProjectile
 
         float speed = 7.5f;
         
-        if (BFDTCHS.enraged)
+        if (BFDTCHS.Enraged)
             speed = 15f;
         
         Vector2 direction = player.Center - Projectile.Center;
