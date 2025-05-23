@@ -1,14 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
+using ModDeTchass.Content.Backgrounds;
 using ModDeTchass.Content.BossBars;
 using ModDeTchass.Content.Buffs;
 using ModDeTchass.Content.Items.Guns;
 using ModDeTchass.Content.Items.Materials;
 using ModDeTchass.Content.Projectiles;
-using SDL2;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,12 +20,15 @@ namespace ModDeTchass.Content.NPCs.Bosses;
 [AutoloadBossHead]
 public class BFDTCHS : ModNPC
 {
+    private bool canResetTimer = true;
     bool phase2 = false;
+    bool nextMove = false;
     public static bool Enraged = false;
     int projectileChance = 5;
     float speed = 7f;
     int timer;
     int projTimer = 6;
+    private int moveTimer;
     int rotation = 0;
 
     public override void SetStaticDefaults()
@@ -50,6 +55,7 @@ public class BFDTCHS : ModNPC
         NPC.noTileCollide = true;
         NPC.SpawnWithHigherTime(10);
         NPC.npcSlots = 10f;
+        
         if (!Main.dedServ)
         {
             Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/bfdtchsSong");
@@ -61,29 +67,36 @@ public class BFDTCHS : ModNPC
         return phase2 || Enraged ? Color.Red : Color.White;
     }
 
-        
     public override void AI()
     {
         if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
         {
             NPC.TargetClosest();
         }
-
+        
         timer++;
+        moveTimer++;
+        
+        Main.bgStyle = ModContent.GetInstance<BfdtchsBack>().Slot;
+
+        if (moveTimer == 1200 && !nextMove)
+            nextMove = true;
 
         if (phase2)
             projTimer++;
         
         Player player = Main.player[NPC.target];
         Vector2 direction = NPC.DirectionTo(player.Center);
-        NPC.velocity = direction * speed;
-
+        
+            
         if (player.dead)
         {
             NPC.velocity = NPC.DirectionFrom(player.Center) * 50;
             NPC.EncourageDespawn(10);
             return;
         }
+        
+        Move(player, direction);
 
         CheckEnraged(player);
 
@@ -181,9 +194,36 @@ public class BFDTCHS : ModNPC
         }
     }
 
+    private void Move(Player player, Vector2 direction)
+    {
+        Vector2 playerOffset = player.Center + new Vector2(Main.screenWidth / 10f, -NPC.height / 2f);
+
+        if (nextMove)
+        {
+            if (canResetTimer)
+            {
+                moveTimer = 0;
+                canResetTimer = false;
+            }
+            
+            NPC.position = Vector2.Lerp(NPC.position, playerOffset, 0.2f);
+            NPC.velocity = player.velocity;
+            
+            if (moveTimer == 1200)
+            {
+                nextMove = false;
+                canResetTimer = true;
+                moveTimer = 0;
+            }
+        }
+        else
+            NPC.velocity = direction * speed;
+    }
+
     public override void OnKill()
     {
         NPC.SetEventFlagCleared(ref DownedBossSystem.downedBossDeTchass, -1);
+        Main.bgStyle = 0;
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
