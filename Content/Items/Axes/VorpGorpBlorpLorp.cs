@@ -36,6 +36,7 @@ public class VorpGorpBlorpLorp : ModItem
     {
         CreateRecipe()
             .AddIngredient<AlienTchass>(9)
+            .AddIngredient<SuperTchass>(2)
             .AddIngredient(ItemID.Wood, 4)
             .AddTile(TileID.MythrilAnvil)
             .Register();

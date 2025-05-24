@@ -247,7 +247,7 @@ Items: {
 	}
 
 	_30mmBullet: {
-		DisplayName: _30mm Bullet
+		DisplayName: 30mm Bullet
 		Tooltip: ""
 	}
 }

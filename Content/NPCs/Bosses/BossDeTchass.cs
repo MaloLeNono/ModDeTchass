@@ -48,12 +48,12 @@ class BossDeTchass : ModNPC
         }
 
         Player player = Main.player[NPC.target];
+        
         if (player.dead)
         {
             NPC.noTileCollide = true;
             NPC.velocity.Y -= 50;
             NPC.EncourageDespawn(10);
-            return;
         }
     }
 

@@ -40,6 +40,8 @@ class TerraTchassProjectile : ModProjectile
         Projectile.ignoreWater = true;
         Projectile.tileCollide = true;
         Projectile.extraUpdates = 2;
+        Projectile.usesIDStaticNPCImmunity = true;
+        Projectile.idStaticNPCHitCooldown = 5;
     }
 
     public override void AI()

@@ -36,6 +36,7 @@ public class GlorpizBlorb : ModItem
     {
         CreateRecipe()
             .AddIngredient<AlienTchass>(10)
+            .AddIngredient<SuperTchass>(2)
             .AddIngredient(ItemID.Wood, 4)
             .AddTile(TileID.MythrilAnvil)
             .Register();

@@ -37,6 +37,7 @@ public class VlorbGlipZip : ModItem
     {
         CreateRecipe()
             .AddIngredient<AlienTchass>(12)
+            .AddIngredient<SuperTchass>(2)
             .AddIngredient(ItemID.Wood, 4)
             .AddTile(TileID.MythrilAnvil)
             .Register();

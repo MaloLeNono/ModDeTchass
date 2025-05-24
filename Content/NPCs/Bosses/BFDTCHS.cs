@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Backgrounds;
 using ModDeTchass.Content.BossBars;
@@ -118,7 +119,8 @@ public class BFDTCHS : ModNPC
     private void FireAngleProjectiles(Vector2 direction)
     {
         IEntitySource source = NPC.GetSource_FromAI();
-        if (Main.netMode != NetmodeID.MultiplayerClient && phase2 && projTimer >= 6)
+        
+        if (Main.netMode != NetmodeID.MultiplayerClient && phase2 && projTimer >= 8)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -150,6 +152,7 @@ public class BFDTCHS : ModNPC
     private void CheckEnraged(Player player)
     {
         float distance = NPC.Distance(player.Center);
+        
         if (distance > 1500 && timer >= 300 && !Enraged)
         {
             NPC.BossBar = ModContent.GetInstance<BfdtchsEnragedBossBar>();
@@ -193,9 +196,6 @@ public class BFDTCHS : ModNPC
 
     private void Move(Player player, Vector2 direction)
     {
-        Vector2 playerOffsetRight = player.Center + new Vector2(Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
-        Vector2 playerOffsetLeft = player.Center + new Vector2(-Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
-        
         if (nextMove)
         {
             if (canResetTimer)
@@ -204,9 +204,22 @@ public class BFDTCHS : ModNPC
                 canResetTimer = false;
             }
 
-            NPC.position = Vector2.Lerp(NPC.position, NPC.position.Distance(playerOffsetRight) < NPC.position.Distance(playerOffsetLeft) 
-                ? playerOffsetRight 
-                : playerOffsetLeft, 0.2f);
+            if (!phase2)
+            {
+                Vector2 playerOffsetRight = player.Center + new Vector2(Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
+                Vector2 playerOffsetLeft = player.Center + new Vector2(-Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
+                
+                NPC.position = Vector2.Lerp(NPC.position, NPC.position.Distance(playerOffsetRight) < NPC.position.Distance(playerOffsetLeft)
+                    ? playerOffsetRight
+                    : playerOffsetLeft, 0.2f);
+            }
+            else
+            {
+                float angle = Main.GameUpdateCount * 0.025f;
+                Vector2 targetPos = player.Center + new Vector2(500f * MathF.Cos(angle), 500f * MathF.Sin(angle));
+
+                NPC.Center = Vector2.Lerp(NPC.Center, targetPos, 0.2f);
+            }
 
             NPC.velocity = player.velocity;
 
@@ -216,9 +229,11 @@ public class BFDTCHS : ModNPC
                 canResetTimer = true;
                 moveTimer = 0;
             }
+
+            return;
         }
-        else
-            NPC.velocity = direction * speed;
+        
+        NPC.velocity = direction * speed;
     }
 
     public override void OnKill()

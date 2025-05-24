@@ -9,7 +9,6 @@ public class Guide : GlobalNPC
 {
     private static Profiles.StackedNPCProfile NPCProfile;
     private const string TexturePath = "ModDeTchass/Content/Textures/Guide_Default";
-    private const string HeadPath = "ModDeTchass/Content/Textures/NPC_Head_1";
     
     public override bool AppliesToEntity(NPC entity, bool lateInstantiation)
     {
