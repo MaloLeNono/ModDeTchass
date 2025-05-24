@@ -27,6 +27,7 @@ public class BFDTCHS : ModNPC
     private float speed = 7f;
     private int timer;
     private int projTimer = 6;
+    private int shootTimer = 0;
     private int moveTimer;
     private int rotation = 0;
 
@@ -75,6 +76,7 @@ public class BFDTCHS : ModNPC
         
         timer++;
         moveTimer++;
+        shootTimer++;
         
         Main.bgStyle = ModContent.GetInstance<BfdtchsBack>().Slot;
 
@@ -86,6 +88,7 @@ public class BFDTCHS : ModNPC
         
         Player player = Main.player[NPC.target];
         Vector2 direction = NPC.DirectionTo(player.Center);
+        IEntitySource source = NPC.GetSource_FromAI();
         
         if (player.dead)
         {
@@ -93,6 +96,8 @@ public class BFDTCHS : ModNPC
             NPC.EncourageDespawn(10);
             return;
         }
+
+        FireConstantProjectiles(direction, source);
         
         Move(player, direction);
 
@@ -100,7 +105,7 @@ public class BFDTCHS : ModNPC
 
         CheckSecondPhase();
 
-        FireAngleProjectiles(direction);
+        FireAngleProjectiles(direction, source);
     }
 
     public override void HitEffect(NPC.HitInfo hit)
@@ -116,22 +121,28 @@ public class BFDTCHS : ModNPC
         FireRandomOnHit();
     }
 
-    private void FireAngleProjectiles(Vector2 direction)
+    private void FireAngleProjectiles(Vector2 direction, IEntitySource source)
     {
-        IEntitySource source = NPC.GetSource_FromAI();
-        
         if (Main.netMode != NetmodeID.MultiplayerClient && phase2 && projTimer >= 8)
         {
             for (int i = 0; i < 4; i++)
             {
                 Vector2 newDir = direction.RotatedBy(MathHelper.ToRadians(rotation));
-                Projectile.NewProjectile(source, NPC.Center, newDir * speed * 1.2f,
-                    ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
+                Projectile.NewProjectile(source, NPC.Center, newDir * speed * 1.2f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 400, 5);
                 rotation += 90;
             }
 
             projTimer = 0;
             rotation += 45;
+        }
+    }
+
+    private void FireConstantProjectiles(Vector2 direction, IEntitySource source)
+    {
+        if (Main.netMode != NetmodeID.MultiplayerClient && shootTimer == 600 && !phase2)
+        {
+            shootTimer = 0;
+            Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.7f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 250, 5);
         }
     }
 
