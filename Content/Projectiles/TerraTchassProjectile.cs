@@ -13,13 +13,10 @@ class TerraTchassProjectile : ModProjectile
     private NPC HomingTarget
     {
         get => Projectile.ai[0] == 0 ? null : Main.npc[(int)Projectile.ai[0] - 1];
-        set
-        {
-            Projectile.ai[0] = value == null ? 0 : value.whoAmI + 1;
-        }
+        set => Projectile.ai[0] = value == null ? 0 : value.whoAmI + 1;
     }
 
-    public ref float DelayTimer => ref Projectile.ai[1];
+    private ref float DelayTimer => ref Projectile.ai[1];
 
     public override void SetStaticDefaults()
     {
@@ -47,7 +44,7 @@ class TerraTchassProjectile : ModProjectile
 
     public override void AI()
     {
-        float maxRadius = 400f;
+        const float maxRadius = 400f;
             
         if (DelayTimer < 10)
         {
@@ -73,7 +70,7 @@ class TerraTchassProjectile : ModProjectile
         Projectile.rotation = Projectile.velocity.ToRotation();
     }
 
-    public NPC FindClosestNPC(float maxDistance)
+    private NPC FindClosestNPC(float maxDistance)
     {
         NPC closestNPC = null;
 
@@ -96,7 +93,7 @@ class TerraTchassProjectile : ModProjectile
         return closestNPC;
     }
 
-    public bool IsValidTarget(NPC target)
+    private bool IsValidTarget(NPC target)
     {
         return target.CanBeChasedBy() && Collision.CanHit(Projectile.Center, 1, 1, target.position, target.width, target.height);
     }

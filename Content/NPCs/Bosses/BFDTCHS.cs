@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
 using ModDeTchass.Content.Backgrounds;
 using ModDeTchass.Content.BossBars;
@@ -10,7 +9,6 @@ using ModDeTchass.Content.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,15 +19,15 @@ namespace ModDeTchass.Content.NPCs.Bosses;
 public class BFDTCHS : ModNPC
 {
     private bool canResetTimer = true;
-    bool phase2 = false;
-    bool nextMove = false;
-    public static bool Enraged = false;
-    int projectileChance = 5;
-    float speed = 7f;
-    int timer;
-    int projTimer = 6;
+    private bool phase2 = false;
+    private bool nextMove = false;
+    public static bool Enraged { get; private set; } = false;
+    private int projectileChance = 5;
+    private float speed = 7f;
+    private int timer;
+    private int projTimer = 6;
     private int moveTimer;
-    int rotation = 0;
+    private int rotation = 0;
 
     public override void SetStaticDefaults()
     {
@@ -88,7 +86,6 @@ public class BFDTCHS : ModNPC
         Player player = Main.player[NPC.target];
         Vector2 direction = NPC.DirectionTo(player.Center);
         
-            
         if (player.dead)
         {
             NPC.velocity = NPC.DirectionFrom(player.Center) * 50;
@@ -196,8 +193,9 @@ public class BFDTCHS : ModNPC
 
     private void Move(Player player, Vector2 direction)
     {
-        Vector2 playerOffset = player.Center + new Vector2(Main.screenWidth / 10f, -NPC.height / 2f);
-
+        Vector2 playerOffsetRight = player.Center + new Vector2(Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
+        Vector2 playerOffsetLeft = player.Center + new Vector2(-Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
+        
         if (nextMove)
         {
             if (canResetTimer)
@@ -205,10 +203,13 @@ public class BFDTCHS : ModNPC
                 moveTimer = 0;
                 canResetTimer = false;
             }
-            
-            NPC.position = Vector2.Lerp(NPC.position, playerOffset, 0.2f);
+
+            NPC.position = Vector2.Lerp(NPC.position, NPC.position.Distance(playerOffsetRight) < NPC.position.Distance(playerOffsetLeft) 
+                ? playerOffsetRight 
+                : playerOffsetLeft, 0.2f);
+
             NPC.velocity = player.velocity;
-            
+
             if (moveTimer == 1200)
             {
                 nextMove = false;
