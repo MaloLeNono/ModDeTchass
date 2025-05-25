@@ -139,7 +139,7 @@ public class BFDTCHS : ModNPC
 
     private void FireConstantProjectiles(Vector2 direction, IEntitySource source)
     {
-        if (Main.netMode != NetmodeID.MultiplayerClient && shootTimer == 600 && !phase2)
+        if (Main.netMode != NetmodeID.MultiplayerClient && shootTimer == 300 && !phase2)
         {
             shootTimer = 0;
             Projectile.NewProjectile(source, NPC.Center, direction * speed * 1.7f, ModContent.ProjectileType<NoHomingTchassProjectile>(), 250, 5);
