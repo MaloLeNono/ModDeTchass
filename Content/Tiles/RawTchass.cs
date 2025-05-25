@@ -43,21 +43,17 @@ public class RawTchassSystem : ModSystem
 
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+        int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 
-        if (ShiniesIndex != -1)
+        if (shiniesIndex != -1)
         {
-            tasks.Insert(ShiniesIndex + 1, new RawTchassPass("Tchass Mod Ores", 237.4298f));
+            tasks.Insert(shiniesIndex + 1, new RawTchassPass("Tchass Mod Ores", 237.4298f));
         }
     }
 }
 
-public class RawTchassPass : GenPass
+public class RawTchassPass(string name, float loadWeight) : GenPass(name, loadWeight)
 {
-    public RawTchassPass(string name, float loadWeight) : base(name, loadWeight)
-    {
-    }
-
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
         progress.Message = RawTchassSystem.RawTchassPassMessage.Value;

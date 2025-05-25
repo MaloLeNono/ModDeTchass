@@ -21,10 +21,10 @@ public class BFDTCHS : ModNPC
 {
     private bool canResetTimer = true;
     private bool phase2 = false;
-    private bool nextMove = false;
     public static bool Enraged { get; private set; } = false;
     private int projectileChance = 5;
     private float speed = 7f;
+    private bool nextMove = false;
     private int timer;
     private int projTimer = 6;
     private int shootTimer = 0;
@@ -96,6 +96,9 @@ public class BFDTCHS : ModNPC
             NPC.EncourageDespawn(10);
             return;
         }
+
+        if (Main.netMode != NetmodeID.MultiplayerClient && !Main.raining)
+            Main.StartRain();
 
         FireConstantProjectiles(direction, source);
         
@@ -251,6 +254,8 @@ public class BFDTCHS : ModNPC
     {
         NPC.SetEventFlagCleared(ref DownedBossSystem.downedBossDeTchass, -1);
         Main.bgStyle = 0;
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+            Main.StopRain();
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

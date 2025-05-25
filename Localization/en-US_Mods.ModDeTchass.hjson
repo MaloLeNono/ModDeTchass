@@ -250,9 +250,18 @@ Items: {
 		DisplayName: 30mm Bullet
 		Tooltip: ""
 	}
+
+	MusiqueDeTchassItem: {
+		DisplayName: Musique De Tchass
+		Tooltip: ""
+	}
 }
 
-Tiles.RawTchass.MapEntry: Raw Tchass
+Tiles: {
+	RawTchass.MapEntry: Raw Tchass
+	MusiqueDeTchass.MapEntry: Musique De Tchass
+}
+
 WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage
 
 Projectiles: {
