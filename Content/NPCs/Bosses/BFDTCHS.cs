@@ -98,7 +98,10 @@ public class BFDTCHS : ModNPC
         }
 
         if (Main.netMode != NetmodeID.MultiplayerClient && !Main.raining)
+        {
             Main.StartRain();
+            Main.SyncRain();
+        }
 
         FireConstantProjectiles(direction, source);
         
@@ -254,8 +257,12 @@ public class BFDTCHS : ModNPC
     {
         NPC.SetEventFlagCleared(ref DownedBossSystem.downedBossDeTchass, -1);
         Main.bgStyle = 0;
+        
         if (Main.netMode != NetmodeID.MultiplayerClient)
+        {
             Main.StopRain();
+            Main.SyncRain();
+        }
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

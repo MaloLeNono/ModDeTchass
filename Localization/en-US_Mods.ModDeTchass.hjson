@@ -255,11 +255,17 @@ Items: {
 		DisplayName: Musique De Tchass
 		Tooltip: ""
 	}
+
+	CoemsBoxItem: {
+		DisplayName: Coems Box
+		Tooltip: ""
+	}
 }
 
 Tiles: {
 	RawTchass.MapEntry: Raw Tchass
 	MusiqueDeTchass.MapEntry: Musique De Tchass
+	CoemsBox.MapEntry: Coems Box
 }
 
 WorldGen.RawTchassPassMessage: Mods.ModDeTchass.WorldGen.RawTchassPassMessage

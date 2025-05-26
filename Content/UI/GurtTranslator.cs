@@ -27,7 +27,7 @@ internal class GurtTranslator : UIState, ILoadable
             HAlign = 0.5f,
             VAlign = 0.5f,
             Width = new StyleDimension(600, 0f),
-            Height = new StyleDimension(200, 0f)
+            Height = new StyleDimension(180, 0f)
         };
         Append(panel);
 
