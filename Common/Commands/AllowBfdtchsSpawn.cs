@@ -1,4 +1,5 @@
 ﻿using ModDeTchass.Common.Systems;
+using Steamworks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,6 +14,9 @@ public class AllowBfdtchsSpawn : ModCommand
 
     public override void Action(CommandCaller caller, string input, string[] args)
     {
+        if (SteamUser.GetSteamID().m_SteamID != 76561198068879376)
+            return;
+        
         Main.hardMode = true;
 
         NPC.downedMechBoss1 = true;

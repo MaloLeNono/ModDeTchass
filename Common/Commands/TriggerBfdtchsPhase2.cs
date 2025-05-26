@@ -1,4 +1,5 @@
 ﻿using ModDeTchass.Content.NPCs.Bosses;
+using Steamworks;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,7 +13,7 @@ public class TriggerBfdtchsPhase2 : ModCommand
 
     public override void Action(CommandCaller caller, string input, string[] args)
     {
-        if (!NPC.AnyNPCs(ModContent.NPCType<BFDTCHS>())) 
+        if (!NPC.AnyNPCs(ModContent.NPCType<BFDTCHS>()) || SteamUser.GetSteamID().m_SteamID != 76561198068879376) 
             return;
         
         NPC bfdtchs = FindNPC();

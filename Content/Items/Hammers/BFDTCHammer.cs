@@ -13,7 +13,7 @@ class BFDTCHammer : ModItem
         Item.width = 56;
         Item.height = 54;
         Item.value = Item.buyPrice(gold: 1);
-        Item.useTime = 20;
+        Item.useTime = 9;
         Item.useAnimation = 20;
         Item.DamageType = DamageClass.Melee;
         Item.hammer = 100;

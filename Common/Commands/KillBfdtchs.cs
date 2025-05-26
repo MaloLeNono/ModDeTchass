@@ -1,4 +1,5 @@
 ﻿using ModDeTchass.Content.NPCs.Bosses;
+using Steamworks;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,6 +13,9 @@ public class KillBfdtchs : ModCommand
 
     public override void Action(CommandCaller caller, string input, string[] args)
     {
+        if (SteamUser.GetSteamID().m_SteamID != 76561198068879376)
+            return;
+        
         NPC bfdtchs = FindNPC();
         bfdtchs.StrikeInstantKill();
     }
