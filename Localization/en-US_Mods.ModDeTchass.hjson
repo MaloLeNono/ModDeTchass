@@ -260,6 +260,11 @@ Items: {
 		DisplayName: Coems Box
 		Tooltip: ""
 	}
+
+	GurtTranslator: {
+		DisplayName: Gurt Translator
+		Tooltip: Traduit le brainrot de Gurt
+	}
 }
 
 Tiles: {

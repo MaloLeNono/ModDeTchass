@@ -127,6 +127,7 @@ public class Gurt : ModNPC
     {
         var npcShop = new NPCShop(Type, ShopName)
             .Add<CanOfInsects>()
+            .Add<GurtTranslator>()
             .Add(new Item(ItemID.DirtBlock) { shopCustomPrice = Item.buyPrice(platinum: 25) });
         npcShop.Register();
     }
