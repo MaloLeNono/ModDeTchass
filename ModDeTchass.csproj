@@ -12,9 +12,6 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Content\Exectuables\" />
-	</ItemGroup>
 
 	<!-- References -->
 

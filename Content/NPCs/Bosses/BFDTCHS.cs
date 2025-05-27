@@ -20,16 +20,16 @@ namespace ModDeTchass.Content.NPCs.Bosses;
 public class BFDTCHS : ModNPC
 {
     private bool canResetTimer = true;
-    private bool phase2 = false;
-    public static bool Enraged { get; private set; } = false;
+    private bool phase2;
+    public bool Enraged;
     private int projectileChance = 5;
     private float speed = 7f;
-    private bool nextMove = false;
+    private bool nextMove;
     private int timer;
     private int projTimer = 6;
-    private int shootTimer = 0;
+    private int shootTimer;
     private int moveTimer;
-    private int rotation = 0;
+    private int rotation;
 
     public override void SetStaticDefaults()
     {
@@ -92,7 +92,7 @@ public class BFDTCHS : ModNPC
         
         if (player.dead)
         {
-            NPC.velocity = NPC.DirectionFrom(player.Center) * 50;
+            NPC.velocity = NPC.DirectionFrom(player.Center) * 50f;
             NPC.EncourageDespawn(10);
             return;
         }

@@ -1,4 +1,5 @@
-﻿using ModDeTchass.Content.NPCs.Bosses;
+﻿using System.Linq;
+using ModDeTchass.Content.NPCs.Bosses;
 using Steamworks;
 using Terraria;
 using Terraria.ModLoader;
@@ -22,13 +23,6 @@ public class KillBfdtchs : ModCommand
     
     private static NPC FindNPC()
     {
-        for (int i = 0; i < Main.maxNPCs; i++)
-        {
-            NPC npc = Main.npc[i];
-            if (npc.type == ModContent.NPCType<BFDTCHS>())
-                return npc;
-        }
-
-        return null;
+        return Main.npc.FirstOrDefault(npc => npc.type == ModContent.NPCType<BFDTCHS>());
     }
 }

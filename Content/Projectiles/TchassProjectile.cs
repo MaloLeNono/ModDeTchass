@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ModDeTchass.Common.Systems;
@@ -50,14 +51,21 @@ class TchassProjectile : ModProjectile
         Player player = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
 
         float speed = 9.5f;
+
+        BFDTCHS bfdtchs = GetBfdtchs();
         
-        if (BFDTCHS.Enraged)
+        if (bfdtchs.Enraged)
             speed = 15f;
         
         Vector2 direction = player.Center - Projectile.Center;
         direction.Normalize();
         Projectile.velocity = direction * speed;
         Projectile.rotation = Projectile.velocity.ToRotation();
+    }
+
+    private static BFDTCHS GetBfdtchs()
+    {
+        return (from npc in Main.npc where npc.type == ModContent.NPCType<BFDTCHS>() select npc.ModNPC as BFDTCHS).FirstOrDefault();
     }
 
     public override bool PreDraw(ref Color lightColor)

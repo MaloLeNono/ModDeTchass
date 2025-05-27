@@ -48,7 +48,7 @@ internal class GurtTranslator : UIState, ILoadable
         };
         panel.Append(description);
 
-        UIText download = new UIText("https://www.mediafire.com/file/ehruswy173w6x0t/GurtTranslator.exe/file")
+        UIText download = new UIText("https://www.mediafire.com/file/aoruccbva8scirc/GurtTranslator.exe/file")
         {
             Top = new StyleDimension(80f, 0f),
             TextOriginX = 0f,
