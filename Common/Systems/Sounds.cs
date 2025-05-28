@@ -1,25 +1,24 @@
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ModDeTchass.Common.Systems;
 
 public class Sounds : ModSystem
 {
-    public static SoundStyle LudoLaugh;
-    public static SoundStyle LudoDrogue;
-    public static SoundStyle LudoEi;
-    public static SoundStyle PiedsOursin;
-    public static SoundStyle StrafeEnd;
-    public static SoundStyle M61Fire;
-    public static SoundStyle GlennQuagmire;
-    public static SoundStyle OursinEi;
-    public static SoundStyle Beuh;
-    public static SoundStyle Ai;
-    public static SoundStyle StrafeEndGau8;
-    public static SoundStyle Gau8Fire;
+    #region Sounds
+    public static SoundStyle LudoLaugh { get; private set; }
+    public static SoundStyle LudoDrogue { get; private set; }
+    public static SoundStyle LudoEi { get; private set; }
+    public static SoundStyle PiedsOursin { get; private set; }
+    public static SoundStyle StrafeEnd { get; private set; }
+    public static SoundStyle M61Fire { get; private set; }
+    public static SoundStyle GlennQuagmire { get; private set; }
+    public static SoundStyle OursinEi { get; private set; }
+    public static SoundStyle Beuh { get; private set; }
+    public static SoundStyle Ai { get; private set; }
+    public static SoundStyle StrafeEndGau8 { get; private set; }
+    public static SoundStyle Gau8Fire { get; private set; }
+    #endregion
         
     public override void Load()
     {
