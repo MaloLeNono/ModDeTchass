@@ -1,4 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -69,8 +76,5 @@ internal class GurtTranslator : UIState, ILoadable
         panel.Append(backButton);
     }
 
-    private void BackButton_OnLeftClick(UIMouseEvent evnt, UIElement listeningElement)
-    {
-        IngameFancyUI.Close();
-    }
+    private static void BackButton_OnLeftClick(UIMouseEvent evnt, UIElement listeningElement) => IngameFancyUI.Close();
 }

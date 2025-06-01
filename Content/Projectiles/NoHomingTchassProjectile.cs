@@ -30,11 +30,16 @@ class NoHomingTchassProjectile : ModProjectile
         Projectile.penetrate = 1;
         Projectile.timeLeft = 300;
         Projectile.alpha = 0;
-        Projectile.light = 1f;
+        Projectile.light = 0f;
         Projectile.ignoreWater = true;
-        Projectile.tileCollide = true;
+        Projectile.tileCollide = false;
         Projectile.extraUpdates = 2;
         AIType = ProjectileID.Bullet;
+    }
+
+    public override Color? GetAlpha(Color lightColor)
+    {
+        return Color.White;
     }
 
     public override void AI()

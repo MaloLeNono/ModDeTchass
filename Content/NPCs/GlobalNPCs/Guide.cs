@@ -10,10 +10,7 @@ public class Guide : GlobalNPC
     private static Profiles.StackedNPCProfile NPCProfile;
     private const string TexturePath = "ModDeTchass/Content/Textures/Guide_Default";
     
-    public override bool AppliesToEntity(NPC entity, bool lateInstantiation)
-    {
-        return entity.type == NPCID.Guide;
-    }
+    public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.type == NPCID.Guide;
 
     public override void SetStaticDefaults()
     {
@@ -22,8 +19,5 @@ public class Guide : GlobalNPC
         );
     }
 
-    public override ITownNPCProfile ModifyTownNPCProfile(NPC npc)
-    {
-        return NPCProfile;
-    }
+    public override ITownNPCProfile ModifyTownNPCProfile(NPC npc) => NPCProfile;
 }

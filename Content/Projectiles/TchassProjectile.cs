@@ -50,7 +50,7 @@ class TchassProjectile : ModProjectile
 
         Player player = Main.player[Player.FindClosest(Projectile.Center, Projectile.width, Projectile.height)];
 
-        float speed = 9.5f;
+        float speed = 8.5f;
 
         BFDTCHS bfdtchs = GetBfdtchs();
         

@@ -118,9 +118,10 @@ public class Gurt : ModNPC
         if (firstButton)
         {
             shopName = ShopName;
+            return;
         }
-        else
-            Main.npcChatText = GetChat();
+
+        Main.npcChatText = GetChat();
     }
 
     public override void AddShops()
