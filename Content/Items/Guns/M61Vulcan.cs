@@ -39,10 +39,7 @@ class M61Vulcan : ModItem
         return true;
     }
 
-    public override Vector2? HoldoutOffset()
-    {
-        return new Vector2(-1f, 0f);
-    }
+    public override Vector2? HoldoutOffset() => new Vector2(-1f, 0f);
 }
 
 class F16FighterJet : ModPlayer

@@ -27,10 +27,7 @@ public class VorpGorpBlorpLorp : ModItem
         Item.useTurn = true;
     }
 
-    public override void MeleeEffects(Player player, Rectangle hitbox)
-    {
-        Dust.NewDust(player.position, player.width, player.height, DustID.GreenFairy, Scale: 0.7f);
-    }
+    public override void MeleeEffects(Player player, Rectangle hitbox) => Dust.NewDust(player.position, player.width, player.height, DustID.GreenFairy, Scale: 0.7f);
 
     public override void AddRecipes()
     {

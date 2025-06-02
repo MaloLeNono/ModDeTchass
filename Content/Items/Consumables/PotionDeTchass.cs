@@ -36,7 +36,6 @@ class PotionDeTchass : ModItem
 
     public override void OnConsumeItem(Player player)
     {
-
     }
 
     public override void AddRecipes()

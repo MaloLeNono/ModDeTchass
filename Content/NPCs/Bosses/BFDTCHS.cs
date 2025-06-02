@@ -62,10 +62,7 @@ public class BFDTCHS : ModNPC
         }
     }
 
-    public override Color? GetAlpha(Color drawColor)
-    {
-        return phase2 || Enraged ? Color.Red : Color.White;
-    }
+    public override Color? GetAlpha(Color drawColor) => phase2 || Enraged ? Color.Red : Color.White;
 
     public override void AI()
     {

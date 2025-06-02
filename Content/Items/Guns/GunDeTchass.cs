@@ -38,8 +38,5 @@ class GunDeTchass : ModItem
             .Register();
     }
 
-    public override Vector2? HoldoutOffset()
-    {
-        return new Vector2(0f, 4f);
-    }
+    public override Vector2? HoldoutOffset() => new Vector2(0f, 4f);
 }

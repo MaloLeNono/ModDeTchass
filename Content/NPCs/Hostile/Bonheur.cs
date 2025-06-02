@@ -39,12 +39,7 @@ public class Bonheur : ModNPC
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RawTchass>(), 4, 2, 10));
     }
 
-    public override float SpawnChance(NPCSpawnInfo spawnInfo)
-    {
-        if (!Condition.Hardmode.IsMet())
-            return SpawnCondition.OverworldNightMonster.Chance * 0.8f;
-        return 0;
-    }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo) => !Condition.Hardmode.IsMet() ? SpawnCondition.OverworldNightMonster.Chance * 0.8f : 0;
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
     {

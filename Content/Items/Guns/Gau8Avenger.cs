@@ -39,10 +39,7 @@ public class Gau8Avenger : ModItem
         return true;
     }
 
-    public override Vector2? HoldoutOffset()
-    {
-        return new Vector2(-1f, 12f);
-    }
+    public override Vector2? HoldoutOffset() => new Vector2(-1f, 12f);
 
     public override void AddRecipes()
     {

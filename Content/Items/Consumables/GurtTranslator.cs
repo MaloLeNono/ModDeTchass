@@ -22,10 +22,7 @@ public class GurtTranslator : ModItem
         Item.maxStack = 1;
     }
 
-    public override bool CanUseItem(Player player)
-    {
-        return TownNPCRespawnSystem.UnlockedGurt;
-    }
+    public override bool CanUseItem(Player player) => TownNPCRespawnSystem.UnlockedGurt;
 
     public override bool? UseItem(Player player)
     {

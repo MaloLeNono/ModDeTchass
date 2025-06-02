@@ -25,10 +25,7 @@ class BFDTCHammer : ModItem
         Item.useStyle = ItemUseStyleID.Swing;
     }
 
-    public override void MeleeEffects(Player player, Rectangle hitbox)
-    {
-        Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
-    }
+    public override void MeleeEffects(Player player, Rectangle hitbox) => Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
 
     public override void AddRecipes()
     {

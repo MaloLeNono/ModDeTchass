@@ -57,10 +57,7 @@ class BossDeTchass : ModNPC
         }
     }
 
-    public override void OnKill()
-    {
-        NPC.SetEventFlagCleared(ref DownedBossSystem.downedBossDeTchass, -1);
-    }
+    public override void OnKill() => NPC.SetEventFlagCleared(ref DownedBossSystem.downedBossDeTchass, -1);
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {

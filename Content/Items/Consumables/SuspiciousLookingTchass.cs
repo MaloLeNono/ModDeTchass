@@ -10,10 +10,7 @@ namespace ModDeTchass.Content.Items.Consumables;
 
 class SuspiciousLookingTchass : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
-    }
+    public override void SetStaticDefaults() => ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
 
     public override void SetDefaults()
     {
@@ -28,10 +25,7 @@ class SuspiciousLookingTchass : ModItem
         Item.consumable = true;
     }
 
-    public override bool CanUseItem(Player player)
-    {
-        return !NPC.AnyNPCs(ModContent.NPCType<BossDeTchass>());
-    }
+    public override bool CanUseItem(Player player) => !NPC.AnyNPCs(ModContent.NPCType<BossDeTchass>());
 
     public override bool? UseItem(Player player)
     {

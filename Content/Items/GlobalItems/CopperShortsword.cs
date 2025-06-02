@@ -7,11 +7,8 @@ namespace ModDeTchass.Content.Items.GlobalItems;
 
 public class CopperShortsword : GlobalItem
 {
-    public override bool AppliesToEntity(Item entity, bool lateInstantiation)
-    {
-        return entity.type == ItemID.CopperShortsword;
-    }
-    
+    public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.type == ItemID.CopperShortsword;
+
     public override void SetDefaults(Item entity)
     {
         entity.damage = 1;
@@ -21,8 +18,5 @@ public class CopperShortsword : GlobalItem
         entity.hammer = 15;
     }
 
-    public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
-    {
-        tooltips.Add(new TooltipLine(Mod, "CopperShortsword", "What"));
-    }
+    public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) => tooltips.Add(new TooltipLine(Mod, "CopperShortsword", "What"));
 }

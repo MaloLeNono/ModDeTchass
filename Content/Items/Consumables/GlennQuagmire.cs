@@ -23,10 +23,7 @@ class GlennQuagmire : ModItem
         Item.useStyle = ItemUseStyleID.HoldUp;
     }
 
-    public override bool? UseItem(Player player)
-    {
-        return true;
-    }
+    public override bool? UseItem(Player player) => true;
 
     public override void AddRecipes()
     {

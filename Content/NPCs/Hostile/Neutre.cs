@@ -38,10 +38,7 @@ public class Neutre : ModNPC
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RawTchass>(), 4, 10, 20));
     }
 
-    public override float SpawnChance(NPCSpawnInfo spawnInfo)
-    {
-        return SpawnCondition.OverworldNightMonster.Chance * 0.005f;
-    }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo) => SpawnCondition.OverworldNightMonster.Chance * 0.005f;
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
     {

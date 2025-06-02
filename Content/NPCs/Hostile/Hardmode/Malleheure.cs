@@ -38,12 +38,7 @@ public class Malleheure : ModNPC
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BouffeDeTchass>(), 5, 1, 12));
     }
 
-    public override float SpawnChance(NPCSpawnInfo spawnInfo)
-    {
-        if (Condition.Hardmode.IsMet())
-            return SpawnCondition.OverworldNightMonster.Chance * 0.3f;
-        return 0;
-    }
+    public override float SpawnChance(NPCSpawnInfo spawnInfo) => Condition.Hardmode.IsMet() ? SpawnCondition.OverworldNightMonster.Chance * 0.3f : 0;
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
     {
