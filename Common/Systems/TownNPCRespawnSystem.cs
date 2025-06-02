@@ -8,31 +8,38 @@ namespace ModDeTchass.Common.Systems;
 
 public class TownNPCRespawnSystem : ModSystem
 {
-    public static bool unlockedGurt = false;
-
+    public static bool UnlockedGurt;
+    public static bool UnlockedPetite;
+    
     public override void ClearWorld()
     {
-        unlockedGurt = false;
+        UnlockedGurt = false;
+        UnlockedPetite = false;
     }
 
     public override void SaveWorldData(TagCompound tag)
     {
-        tag[nameof(unlockedGurt)] = unlockedGurt;
+        tag[nameof(UnlockedGurt)] = UnlockedGurt;
+        tag[nameof(UnlockedPetite)] = UnlockedPetite;
     }
 
     public override void LoadWorldData(TagCompound tag)
     {
-        unlockedGurt = tag.GetBool(nameof(unlockedGurt));
-        unlockedGurt |= NPC.AnyNPCs(ModContent.NPCType<Gurt>());
+        UnlockedGurt = tag.GetBool(nameof(UnlockedGurt));
+        UnlockedGurt |= NPC.AnyNPCs(ModContent.NPCType<Gurt>());
+        UnlockedPetite = tag.GetBool(nameof(UnlockedPetite));
+        UnlockedPetite |= NPC.AnyNPCs(ModContent.NPCType<Petite>());
     }
 
     public override void NetSend(BinaryWriter writer)
     {
-        writer.WriteFlags(unlockedGurt);
+        writer.WriteFlags(UnlockedGurt);
+        writer.WriteFlags(UnlockedPetite);
     }
 
     public override void NetReceive(BinaryReader reader)
     {
-        reader.ReadFlags(out unlockedGurt);
+        reader.ReadFlags(out UnlockedGurt);
+        reader.ReadFlags(out UnlockedPetite);
     }
 }

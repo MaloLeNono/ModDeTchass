@@ -24,7 +24,7 @@ public class GurtTranslator : ModItem
 
     public override bool CanUseItem(Player player)
     {
-        return TownNPCRespawnSystem.unlockedGurt;
+        return TownNPCRespawnSystem.UnlockedGurt;
     }
 
     public override bool? UseItem(Player player)
