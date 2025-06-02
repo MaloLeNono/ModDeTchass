@@ -70,7 +70,7 @@ public class BFDTCHS : ModNPC
         {
             NPC.TargetClosest();
         }
-        
+
         timer++;
         moveTimer++;
         shootTimer++;
@@ -220,8 +220,8 @@ public class BFDTCHS : ModNPC
 
             if (!phase2)
             {
-                Vector2 playerOffsetRight = player.Center + new Vector2(Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
-                Vector2 playerOffsetLeft = player.Center + new Vector2(-Main.screenWidth / 4f - NPC.width / 2f, -NPC.height / 2f);
+                Vector2 playerOffsetRight = player.Center + new Vector2(2000 - NPC.width / 2f, -NPC.height / 2f);
+                Vector2 playerOffsetLeft = player.Center + new Vector2(-2000 / 4f - NPC.width / 2f, -NPC.height / 2f);
                 
                 NPC.position = Vector2.Lerp(NPC.position, NPC.position.Distance(playerOffsetRight) < NPC.position.Distance(playerOffsetLeft)
                     ? playerOffsetRight
