@@ -270,6 +270,11 @@ Items: {
 		DisplayName: Poulet Au Beurre
 		Tooltip: ""
 	}
+
+	Mayonnaise: {
+		DisplayName: Mayonnaise
+		Tooltip: ""
+	}
 }
 
 Tiles: {
